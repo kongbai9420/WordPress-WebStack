@@ -73,7 +73,7 @@ RewriteRule . /index.php [L]
 
 ### 感谢
 感谢 <a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank">Viggo</a> 的前台设计
-感谢 <a href="https://github.com/owen0o0/WebStack" target="_blank">一为忆</a> 的前台设计
+感谢 <a href="https://github.com/owen0o0/WebStack" target="_blank">一为忆</a> 的设计
 <br/>
 
 ### 更新
