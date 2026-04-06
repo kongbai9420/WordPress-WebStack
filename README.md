@@ -10,7 +10,9 @@ WordPress 版 WebStack 主题。<a href="https://dh.kongbaige.net/">前往演示
 
 ### 首页截图
 <br/>
+
 [![首页白.png](https://picui.ogmua.cn/s1/2026/04/06/69d3642b2e550.webp)](https://picui.ogmua.cn/s1/2026/04/06/69d3642b2e550.webp)
+
 [![首页黑.png](https://picui.ogmua.cn/s1/2026/04/06/69d3642b6f082.webp)](https://picui.ogmua.cn/s1/2026/04/06/69d3642b6f082.webp)
 <br/>
 
