@@ -1,19 +1,19 @@
 # WebStack
-WordPress 版 WebStack 主题。<a href="http://webstack.iotheme.cn/">前往演示站</a>
+WordPress 版 WebStack 主题。<a href="https://dh.kongbaige.net/">前往演示站</a>
 <br/>
 
 ### 声明
 当你使用 WebStack 主题发布文章、文字、图片、视频等内容均属于你自己的行为，你的这些行为所带来的安全或法律风险均需自行承担。
 
-
-“Webstack Pro”是作者在19年尝试的一个收费项目，现已不在维护支持，且与<a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank">Viggo</a>无关，应当时名字欠缺考虑，给<a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank">Viggo</a>带来了不必要的麻烦，在此道歉。<br/>
-现今网络上流传的“Webstack Pro”版本均为盗用作者19年的内容，与作者和<a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank">Viggo</a>无关。
+本主题基于<a href="https://github.com/owen0o0/WebStack" target="_blank">owen0o0/WebStack</a>修改
+使用AI优化UI风格，偏向于苹果风（不知道算不算）
 
 ### 首页截图
 <br/>
-
-![Thumbnail_index](https://owen0o0.github.io/ioStaticResources/webstack/01.png)
+![首页白.png](https://picui.ogmua.cn/s1/2026/04/06/69d3642b2e550.webp)
+![首页黑.png](https://picui.ogmua.cn/s1/2026/04/06/69d3642b6f082.webp)
 <br/>
+
 
 ### 环境要求
 + WordPress 4.4+
@@ -44,7 +44,6 @@ RewriteRule . /index.php [L]
 ```
 + WordPress 后台「主题」栏目 -> 上传主题 -> 启用主题，或者在 /wp-content/themes 文件夹新建webstack文件夹，并上传所有文件
 + 果然点击地址出现404，请到WordPress 后台「设置」栏目 -> 固定链接 -> 保存更改
-+ 反馈交♂流：<a href="https://www.iowen.cn" target="_blank">一为忆</a>
 
 <br/>
 
@@ -72,8 +71,9 @@ RewriteRule . /index.php [L]
 
 ### 感谢
 感谢 <a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank">Viggo</a> 的前台设计
+感谢 <a href="https://github.com/owen0o0/WebStack" target="_blank">一为忆</a> 的前台设计
 <br/>
 
 ### 更新
-<a href="https://github.com/owen0o0/WebStack/releases" target="_blank">更新日志</a>
+<a href="https://github.com/kongbai9420/WordPress-WebStack/releases" target="_blank">更新日志</a>
 更新方法为替换源文件，或者在wordpress后台删除主题，然后重新安装主题
