@@ -4,12 +4,7 @@ WordPress 版 WebStack-2026.7 导航网主题。<a href="https://dh.kongbaige.ne
 使用AI优化UI风格，偏向于苹果风（不知道算不算）
 
 ### 更新日志
-- **v1.2026.1** 安全加固：修复 CVE-2026-1555 任意文件上传漏洞，添加 Nonce CSRF 防护，修复页面持续加载问题
-
-<br/>
-
-### 声明
-当你使用 WebStack 主题发布文章、文字、图片、视频等内容均属于你自己的行为，你的这些行为所带来的安全或法律风险均需自行承担。
+- **v1.2026.1** 安全加固：修复 CVE-2026-1555 任意文件上传漏洞，添加 Nonce CSRF 防护，修复页面持续加载问题  
 
 ### 首页截图
 <br/>
@@ -19,6 +14,10 @@ WordPress 版 WebStack-2026.7 导航网主题。<a href="https://dh.kongbaige.ne
 ![首页黑.png](https://www.helloimg.com/i/2026/07/28/6a67a1e449af2.png)
 <br/>
 
+<br/>
+
+### 以下为owen0o0/WebStack原声明极其教程
+当你使用 WebStack 主题发布文章、文字、图片、视频等内容均属于你自己的行为，你的这些行为所带来的安全或法律风险均需自行承担。
 
 ### 环境要求
 + WordPress 4.4+
