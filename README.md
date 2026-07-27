@@ -12,9 +12,9 @@ WordPress 版 WebStack 导航网主题。<a href="https://dh.kongbaige.net/">前
 ### 首页截图
 <br/>
 
-[![首页白.png](https://picui.ogmua.cn/s1/2026/04/06/69d3642b2e550.webp)](https://picui.ogmua.cn/s1/2026/04/06/69d3642b2e550.webp)
+![首页白.png](https://www.helloimg.com/i/2026/07/28/6a67a1e461c0a.png)
 
-[![首页黑.png](https://picui.ogmua.cn/s1/2026/04/06/69d3642b6f082.webp)](https://picui.ogmua.cn/s1/2026/04/06/69d3642b6f082.webp)
+![首页黑.png](https://www.helloimg.com/i/2026/07/28/6a67a1e449af2.png)
 <br/>
 
 
