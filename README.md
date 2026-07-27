@@ -1,13 +1,16 @@
-# WebStack
-WordPress 版 WebStack 导航网主题。<a href="https://dh.kongbaige.net/">前往演示站</a>
+# WebStack-2026.7
+WordPress 版 WebStack-2026.7 导航网主题。<a href="https://dh.kongbaige.net/">前往演示站</a>
+本主题基于<a href="https://github.com/owen0o0/WebStack" target="_blank">owen0o0/WebStack</a>修改
+使用AI优化UI风格，偏向于苹果风（不知道算不算）
+
+### 更新日志
+- **v1.2026.1** 安全加固：修复 CVE-2026-1555 任意文件上传漏洞，添加 Nonce CSRF 防护，修复页面持续加载问题
+
 <br/>
 # WebStack-1.2026
 
 ### 声明
 当你使用 WebStack 主题发布文章、文字、图片、视频等内容均属于你自己的行为，你的这些行为所带来的安全或法律风险均需自行承担。
-
-本主题基于<a href="https://github.com/owen0o0/WebStack" target="_blank">owen0o0/WebStack</a>修改
-使用AI优化UI风格，偏向于苹果风（不知道算不算）
 
 ### 首页截图
 <br/>
