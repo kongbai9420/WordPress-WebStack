@@ -5,6 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 add_action('wp_ajax_nopriv_img_upload', 'io_img_upload');  
 add_action('wp_ajax_img_upload', 'io_img_upload');
 function io_img_upload(){
+	check_ajax_referer( 'io_img_upload_nonce', 'nonce' );
 	$allowed_mimes = array(
 		'jpg|jpeg' => 'image/jpeg',
 		'png'      => 'image/png',
@@ -78,6 +79,7 @@ function io_img_upload(){
 //删除图片：仅允许已登录且具备删除权限的用户执行，避免游客删除媒体库文件。
 add_action('wp_ajax_img_remove', 'io_img_remove');
 function io_img_remove(){
+	check_ajax_referer( 'io_img_remove_nonce', 'nonce' );
 	$attach_id = isset( $_POST['id'] ) ? absint( $_POST['id'] ) : 0;
 
 	if ( empty( $attach_id ) ) {

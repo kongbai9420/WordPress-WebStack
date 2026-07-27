@@ -44,9 +44,11 @@ function theme_load_scripts() {
 		}
 	}
 	wp_localize_script('appjs', 'theme' , array(
-		'ajaxurl' => admin_url( 'admin-ajax.php' ),
-		'addico'  => get_theme_file_uri('/images/add.png'),
-		'version' => $theme_version,
+		'ajaxurl'       => admin_url( 'admin-ajax.php' ),
+		'addico'        => get_theme_file_uri('/images/add.png'),
+		'version'       => $theme_version,
+		'upload_nonce'  => wp_create_nonce( 'io_img_upload_nonce' ),
+		'remove_nonce'  => wp_create_nonce( 'io_img_remove_nonce' ),
 	)); 
 }
 add_action('wp_enqueue_scripts', 'theme_load_scripts');
