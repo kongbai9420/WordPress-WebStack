@@ -4,51 +4,95 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 //图片上传
 add_action('wp_ajax_nopriv_img_upload', 'io_img_upload');  
 add_action('wp_ajax_img_upload', 'io_img_upload');
-function io_img_upload(){  
-	$extArr = array("jpg", "png", "jpeg");
+function io_img_upload(){
+	$allowed_mimes = array(
+		'jpg|jpeg' => 'image/jpeg',
+		'png'      => 'image/png',
+	);
+	$max_size = 1024 * 1024; // 1MB
+
+	if ( empty( $_FILES['files'] ) || ! is_array( $_FILES['files'] ) ) {
+		wp_send_json( array( 'status' => 3, 'msg' => __( '没有上传图像！', 'i_theme' ) ) );
+	}
+
 	$file = $_FILES['files'];
-	if ( !empty( $file ) ) {
-	    $wp_upload_dir = wp_upload_dir();                                     // 获取上传目录信息
-	    $basename = $file['name'];
-	    $baseext = pathinfo($basename, PATHINFO_EXTENSION);
-	    $dataname = date("YmdHis_").substr(md5(time()), 0, 8) . '.' . $baseext;
-	    $filename = $wp_upload_dir['path'] . '/' . $dataname;
-	    rename( $file['tmp_name'], $filename );                               // 将上传的图片文件移动到上传目录
-	    $attachment = array(
-	        'guid'           => $wp_upload_dir['url'] . '/' . $dataname,      // 外部链接的 url
-	        'post_mime_type' => $file['type'],                                // 文件 mime 类型
-	        'post_title'     => preg_replace( '/\.[^.]+$/', '', $basename ),  // 附件标题，采用去除扩展名之后的文件名
-	        'post_content'   => '',                                           // 文章内容，留空
-	        'post_status'    => 'inherit'
-	    );
-	    $attach_id = wp_insert_attachment( $attachment, $filename );          // 插入附件信息
-	    if($attach_id != 0){
-	        require_once( ABSPATH . 'wp-admin/includes/image.php' );          // 确保包含此文件，因为wp_generate_attachment_metadata（）依赖于此文件。
-	        $attach_data = wp_generate_attachment_metadata( $attach_id, $filename );
-	        wp_update_attachment_metadata( $attach_id, $attach_data );        // 生成附件的元数据，并更新数据库记录。
-	        print_r(json_encode(array('status'=>1,'msg'=>__('图片添加成功','i_theme'),'data'=>array('id'=>$attach_id,'src'=>wp_get_attachment_url( $attach_id ),'title'=>$basename))));
-	        exit();
-	    }else{
-	        echo '{"status":4,"msg":"'.__('图片上传失败！','i_theme').'"}';
-	        exit();
-	    }
-	} 
+
+	if ( ! empty( $file['error'] ) ) {
+		wp_send_json( array( 'status' => 4, 'msg' => __( '图片上传失败！', 'i_theme' ) ) );
+	}
+
+	if ( empty( $file['tmp_name'] ) || ! is_uploaded_file( $file['tmp_name'] ) ) {
+		wp_send_json( array( 'status' => 4, 'msg' => __( '非法上传请求！', 'i_theme' ) ) );
+	}
+
+	if ( ! empty( $file['size'] ) && $file['size'] > $max_size ) {
+		wp_send_json( array( 'status' => 3, 'msg' => __( '图片大小不能超过1M。', 'i_theme' ) ) );
+	}
+
+	$check = wp_check_filetype_and_ext( $file['tmp_name'], $file['name'], $allowed_mimes );
+	if ( empty( $check['ext'] ) || empty( $check['type'] ) ) {
+		wp_send_json( array( 'status' => 3, 'msg' => __( '图片类型只能是 jpeg、jpg、png。', 'i_theme' ) ) );
+	}
+
+	$wp_upload_dir = wp_upload_dir();
+	if ( ! empty( $wp_upload_dir['error'] ) ) {
+		wp_send_json( array( 'status' => 4, 'msg' => esc_html( $wp_upload_dir['error'] ) ) );
+	}
+
+	$basename = sanitize_file_name( wp_basename( $file['name'] ) );
+	$dataname = date( 'YmdHis_' ) . wp_generate_password( 8, false, false ) . '.' . $check['ext'];
+	$filename = trailingslashit( $wp_upload_dir['path'] ) . $dataname;
+
+	if ( ! move_uploaded_file( $file['tmp_name'], $filename ) ) {
+		wp_send_json( array( 'status' => 4, 'msg' => __( '图片上传失败！', 'i_theme' ) ) );
+	}
+
+	$attachment = array(
+		'guid'           => trailingslashit( $wp_upload_dir['url'] ) . $dataname,
+		'post_mime_type' => $check['type'],
+		'post_title'     => preg_replace( '/\.[^.]+$/', '', $basename ),
+		'post_content'   => '',
+		'post_status'    => 'inherit',
+	);
+
+	$attach_id = wp_insert_attachment( $attachment, $filename );
+	if ( $attach_id != 0 ) {
+		require_once( ABSPATH . 'wp-admin/includes/image.php' );
+		$attach_data = wp_generate_attachment_metadata( $attach_id, $filename );
+		wp_update_attachment_metadata( $attach_id, $attach_data );
+		wp_send_json( array(
+			'status' => 1,
+			'msg'    => __( '图片添加成功', 'i_theme' ),
+			'data'   => array(
+				'id'    => $attach_id,
+				'src'   => wp_get_attachment_url( $attach_id ),
+				'title' => $basename,
+			),
+		) );
+	}
+
+	@unlink( $filename );
+	wp_send_json( array( 'status' => 4, 'msg' => __( '图片上传失败！', 'i_theme' ) ) );
 }
 
-//删除图片
-add_action('wp_ajax_nopriv_img_remove', 'io_img_remove');  
+//删除图片：仅允许已登录且具备删除权限的用户执行，避免游客删除媒体库文件。
 add_action('wp_ajax_img_remove', 'io_img_remove');
-function io_img_remove(){    
-	$attach_id = $_POST["id"];
-	if( empty($attach_id) ){
-		echo '{"status":3,"msg":"'.__('没有上传图像！','i_theme').'"}';
-		exit;
+function io_img_remove(){
+	$attach_id = isset( $_POST['id'] ) ? absint( $_POST['id'] ) : 0;
+
+	if ( empty( $attach_id ) ) {
+		wp_send_json( array( 'status' => 3, 'msg' => __( '没有上传图像！', 'i_theme' ) ) );
 	}
-	if ( false === wp_delete_attachment( $attach_id ) )
-		echo '{"status":4,"msg":"'.sprintf(__('图片 %s 删除失败！','i_theme'), $attach_id).'"}';
-	else
-		echo '{"status":1,"msg":"'.__('删除成功！','i_theme').'"}';
-	exit; 
+
+	if ( ! current_user_can( 'delete_post', $attach_id ) ) {
+		wp_send_json( array( 'status' => 403, 'msg' => __( '没有权限删除该图片。', 'i_theme' ) ) );
+	}
+
+	if ( false === wp_delete_attachment( $attach_id ) ) {
+		wp_send_json( array( 'status' => 4, 'msg' => sprintf( __( '图片 %s 删除失败！', 'i_theme' ), $attach_id ) ) );
+	}
+
+	wp_send_json( array( 'status' => 1, 'msg' => __( '删除成功！', 'i_theme' ) ) );
 }
 
 //提交文章
