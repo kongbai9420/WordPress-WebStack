@@ -16,7 +16,7 @@ WordPress 版 WebStack-2026.7 导航网主题。<a href="https://dh.kongbaige.ne
 
 <br/>
 
-### 以下为owen0o0/WebStack原声明极其教程
+### 以下为owen0o0/WebStack原声明及其教程
 当你使用 WebStack 主题发布文章、文字、图片、视频等内容均属于你自己的行为，你的这些行为所带来的安全或法律风险均需自行承担。
 
 ### 环境要求
