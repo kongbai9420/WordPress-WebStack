@@ -13,8 +13,8 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 function fav_con($mid, $visible) { ?>
         <section class="fav-section">
-        <div class="fav-section-head">
-        <h4 class="text-gray section-title"><i class="icon-io-tag" id="term-<?php echo $mid->term_id; ?>"></i><?php echo $mid->name; ?></h4>
+        <div class="fav-section-head" id="term-<?php echo $mid->term_id; ?>">
+        <h4 class="text-gray section-title"><i class="icon-io-tag"></i><?php echo $mid->name; ?></h4>
         <?php 
         if($visible == 2){
             echo '<div class="login-notice">'.__('此分类需登陆后查看','i_theme').'</div>';

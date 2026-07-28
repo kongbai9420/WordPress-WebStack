@@ -20,6 +20,23 @@ $categories = get_categories( array(
     'order'      => 'desc',
     'hide_empty' => 0,
 ));
+
+// 稳定排序：先按 _term_order DESC，再按 term_id ASC 兜底
+if ( ! empty( $categories ) ) {
+    usort( $categories, function( $a, $b ) {
+        $order_a = get_term_meta( $a->term_id, '_term_order', true );
+        $order_b = get_term_meta( $b->term_id, '_term_order', true );
+
+        $order_a = ( $order_a === '' || $order_a === null ) ? 0 : intval( $order_a );
+        $order_b = ( $order_b === '' || $order_b === null ) ? 0 : intval( $order_b );
+
+        if ( $order_a !== $order_b ) {
+            return $order_b - $order_a;
+        }
+
+        return $a->term_id - $b->term_id;
+    } );
+}
 ?>
 <div class="sidebar-menu toggle-others fixed">
             <div class="sidebar-menu-inner">
@@ -62,6 +79,21 @@ $categories = get_categories( array(
                         'child_of'   => $category->term_id,
                         'hide_empty' => 0)
                     );
+                    if ( ! empty( $children ) ) {
+                        usort( $children, function( $a, $b ) {
+                            $order_a = get_term_meta( $a->term_id, '_term_order', true );
+                            $order_b = get_term_meta( $b->term_id, '_term_order', true );
+
+                            $order_a = ( $order_a === '' || $order_a === null ) ? 0 : intval( $order_a );
+                            $order_b = ( $order_b === '' || $order_b === null ) ? 0 : intval( $order_b );
+
+                            if ( $order_a !== $order_b ) {
+                                return $order_b - $order_a;
+                            }
+
+                            return $a->term_id - $b->term_id;
+                        } );
+                    }
                         if(empty($children)){
                             
                             ?>

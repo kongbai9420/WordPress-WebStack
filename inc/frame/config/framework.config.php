@@ -253,7 +253,7 @@ $options[] = array(
             'title'   => '图标源',
             'default' => 'https://t3.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=',
             'desc'    => 'api 地址',
-            'after'   => '默认api地址：https://t3.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=<br>如果获取图标失效，请百度搜索‘获取网站图标api’替换能用的就可以了<br>或者自建api服务，源码地址：<a href="https://www.iowen.cn/favicon-api/" target="_blank">https://www.iowen.cn/favicon-api/</a>',
+            'after'   => '默认api地址：https://t3.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=<br>如果获取图标失效，请百度搜索\'获取网站图标api\'替换能用的就可以了<br>或者自建api服务，源码地址：<a href="https://www.iowen.cn/favicon-api/" target="_blank">https://www.iowen.cn/favicon-api/</a>',
         ),
         array(
             'id'      => 'url_format',
@@ -267,6 +267,22 @@ $options[] = array(
             'type'    => 'text',
             'title'   => '图标源api后缀',
             'desc'    => '如：.png ,请根据api格式要求设置，如不需要请留空',
+        ),
+        array(
+            'type'    => 'notice',
+            'content' => '备用图标源设置（当主图标源获取失败时，浏览器从列表顶部依次尝试，最终降级到默认图标）',
+            'class'   => 'info',
+        ),
+        array(
+            'id'      => 'ico_fallback_urls',
+            'type'    => 'textarea',
+            'title'   => '备用图标源',
+            'desc'    => '每行一个 favicon API 地址，用 {domain} 作为域名占位符<br>支持增删改，留空则不启用备用源',
+            'default' => "https://www.google.com/s2/favicons?domain={domain}&sz=32\nhttps://icons.duckduckgo.com/ip3/{domain}.ico\nhttps://favicon.im/{domain}",
+            'sanitize' => 'textarea',
+            'settings' => array(
+                'textarea_rows' => 4,
+            ),
         ),
     ),
 );
@@ -305,7 +321,7 @@ $options[] = array(
             'id' => 'custom_css',
             'type' => 'wysiwyg',
             'title' => '自定义样式css代码',
-            'desc' => '显示在网站头部 &lt;/head&gt; 之前',
+            'desc' => '显示在网站头部 </head> 之前',
             'after'    => '<p class="cs-text-muted">'.__('自定义 CSS,自定义美化...<br>如：','io_setting').'body .test{color:#ff0000;}</p>',
             'settings' => array(
                 'textarea_rows' => 5,
@@ -317,8 +333,8 @@ $options[] = array(
             'id' => 'code_head_js',
             'type' => 'wysiwyg',
             'title' => 'head自定义 js 代码',
-            'desc' => '显示在网站头部 &lt;/head&gt; 之前',
-            'after'    => '<p class="cs-text-muted">'.__('出现在网站头部 &lt;/head&gt; 前','io_setting').'</p>',
+            'desc' => '显示在网站头部 </head> 之前',
+            'after'    => '<p class="cs-text-muted">'.__('出现在网站头部 </head> 前','io_setting').'</p>',
             'settings' => array(
                 'textarea_rows' => 5,
                 'tinymce'       => false,

@@ -47,6 +47,21 @@ foreach($categories as $category) {
       'hide_empty' => 0
       )
     );
+    if ( ! empty( $children ) ) {
+      usort( $children, function( $a, $b ) {
+        $order_a = get_term_meta( $a->term_id, '_term_order', true );
+        $order_b = get_term_meta( $b->term_id, '_term_order', true );
+
+        $order_a = ( $order_a === '' || $order_a === null ) ? 0 : intval( $order_a );
+        $order_b = ( $order_b === '' || $order_b === null ) ? 0 : intval( $order_b );
+
+        if ( $order_a !== $order_b ) {
+          return $order_b - $order_a;
+        }
+
+        return $a->term_id - $b->term_id;
+      } );
+    }
     if(empty($children)){ 
       fav_con($category, $__visible);
     }else{

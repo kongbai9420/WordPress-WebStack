@@ -59,28 +59,42 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }  ?>
                 }
             }
             $ico = io_theme_get_thumb();
+            $default_ico_fallback = isset($default_ico) ? $default_ico : get_theme_file_uri('/images/favicon.png');
             //判断是不是文章 post
             if(get_post_type() == 'post'){
                 $title = '';
                 $url = get_permalink();
             }else{
-                $ico = $ico ?: (io_get_option('ico_url') . format_url($link_url) . io_get_option('ico_png'));
+                if($ico){
+                    // 有手动上传的缩略图，直接用，onerror 降级到默认图标
+                    $onerror_chain = "this.onerror=null;this.src='" . esc_js($default_ico_fallback) . "'";
+                }else{
+                    // 无缩略图，使用多源 favicon API 备用方案
+                    $ico_urls = io_get_favicon_urls($link_url, $default_ico_fallback);
+                    $ico = array_shift($ico_urls); // 第一个 URL 作为 src
+                    // 构建 onerror 降级链：每个 URL 失败后自动尝试下一个
+                    if (!empty($ico_urls)) {
+                        $onerror_chain = build_onerror_chain($ico_urls);
+                    } else {
+                        $onerror_chain = "this.onerror=null;this.src='" . esc_js($default_ico_fallback) . "'";
+                    }
+                }
             }
             ?>
             <a href="<?php echo $url ?>" target="<?php echo $blank ?>" class="xe-widget xe-conversations box2 label-info" <?php echo $tooltip . ' ' . $is_html ?> title="<?php echo $title ?>">
                 <div class="xe-comment-entry">
                     <div class="xe-user-img">
                         <?php if(io_get_option('lazyload')): ?>
-                        <img class="img-circle lazy" src="<?php echo $default_ico; ?>" data-src="<?php echo $ico ?>" onerror="javascript:this.src='<?php echo $default_ico; ?>'" width="40" height="40">
+                        <img class="img-circle lazy" src="<?php echo $default_ico_fallback; ?>" data-src="<?php echo $ico ?>" onerror="<?php echo $onerror_chain; ?>" width="40" height="40">
                         <?php else: ?>
-                        <img class="img-circle lazy" src="<?php echo $ico ?>" onerror="javascript:this.src='<?php echo $default_ico; ?>'" width="40" height="40">
+                        <img class="img-circle lazy" src="<?php echo $ico ?>" onerror="<?php echo $onerror_chain; ?>" width="40" height="40">
                         <?php endif ?>
                     </div>
                     <div class="xe-comment">
                         <div class="xe-user-name overflowClip_1">
                             <strong><?php the_title() ?></strong>
                         </div>
-                        <p class="overflowClip_1"><?php echo get_post_meta($post->ID, '_sites_sescribe', true) ?: preg_replace("/(\s|\&nbsp\;|　|\xc2\xa0)/","",get_the_excerpt($post->ID)); ?></p>
+                        <p class="overflowClip_2"><?php echo get_post_meta($post->ID, '_sites_sescribe', true) ?: preg_replace("/(\s|\&nbsp\;|　|\xc2\xa0)/","",get_the_excerpt($post->ID)); ?></p>
                     </div>
                 </div>
             </a>

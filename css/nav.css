@@ -1083,6 +1083,7 @@ input[type="submit"]:hover,
   justify-content:space-between;
   gap:16px;
   margin-bottom:18px;
+  scroll-margin-top: 90px;
 }
 
 .section-title,

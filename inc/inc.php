@@ -620,6 +620,80 @@ function format_url($url){
     }
 }
 
+/**
+ * 获取网站 favicon 的多源备用 URL 数组
+ * 返回多个 favicon API 地址，前端通过 img onerror 自动降级
+ * @param string $link_url 网站链接
+ * @param string $default_ico 默认图标地址
+ * @return array 图标 URL 数组，最后一个为默认图标兜底
+ */
+function io_get_favicon_urls($link_url, $default_ico = '') {
+    $urls = array();
+    if (empty($link_url)) {
+        $urls[] = $default_ico;
+        return $urls;
+    }
+
+    // 提取域名
+    if (io_get_option('url_format')) {
+        $pattern = '@^(?:https?://)?([^/]+)@i';
+        preg_match($pattern, $link_url, $matches);
+        $domain = isset($matches[1]) ? $matches[1] : $link_url;
+    } else {
+        $domain = $link_url;
+    }
+
+    // 如果后台配置了 ico_url，优先使用（向后兼容）
+    $ico_url_config = io_get_option('ico_url', '');
+    $ico_png_config = io_get_option('ico_png', '');
+    if (!empty($ico_url_config)) {
+        $urls[] = $ico_url_config . $domain . $ico_png_config;
+    }
+
+    // 备用图标源：从后台 textarea 配置中解析，支持 {domain} 占位符
+    $fallback_urls_raw = io_get_option('ico_fallback_urls', '');
+    if (!empty($fallback_urls_raw)) {
+        $lines = preg_split('/\r\n|\r|\n/', $fallback_urls_raw);
+        foreach ($lines as $line) {
+            $line = trim($line);
+            if (!empty($line)) {
+                // 替换 {domain} 占位符
+                $urls[] = str_replace('{domain}', urlencode($domain), $line);
+            }
+        }
+    }
+
+    // 兜底：默认图标
+    if (!empty($default_ico)) {
+        $urls[] = $default_ico;
+    }
+
+    return $urls;
+}
+
+/**
+ * 构建 img onerror 降级链
+ * 生成的 JS 代码形如：this.onerror=null;this.src='url2';this.onerror=function(){this.onerror=null;this.src='url3';...}
+ * @param array $urls 备用 URL 列表（按优先级排列）
+ * @return string JS onerror 属性值
+ */
+function build_onerror_chain($urls) {
+    if (empty($urls)) {
+        return '';
+    }
+
+    // 只有一个备用 URL 时，直接切换并清除 onerror
+    if (count($urls) === 1) {
+        return "this.onerror=null;this.src='" . esc_js($urls[0]) . "'";
+    }
+
+    // 多个备用 URL 时，递归构建嵌套的 onerror 链
+    $first_url = array_shift($urls);
+    $inner_chain = build_onerror_chain($urls);
+
+    return "this.onerror=null;this.src='" . esc_js($first_url) . "';this.onerror=function(){" . $inner_chain . "}";
+}
+
 # 搜索只查询文章和网址。
 # --------------------------------------------------------------------
 add_filter('pre_get_posts','searchfilter');
