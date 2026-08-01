@@ -24,7 +24,7 @@ $settings           = array(
   'menu_icon'       => CS_URI.'/assets/images/setting.png',
   'ajax_save'       => true,
   'show_reset_all'  => false,
-  'framework_title' => 'WebStack '.__('主题设置','io_setting').'<style>.cs-framework .cs-body {min-height: 700px;}</style><span style="font-size: 14px;"> - V '.wp_get_theme()->get('Version').'</span> <a href="https://www.iotheme.cn/store/onenav.html" target="_blank">go OneNav</a>',
+  'framework_title' => '<span class="cs-logo-icon"><i class="fa fa-compass"></i></span> WebStack ' . __('主题设置','io_setting') . '<span>V '.wp_get_theme()->get('Version').'</span>',
   //'framework_title' => '主题设置',
 );
 
@@ -39,12 +39,7 @@ $options[] = array(
     'fields' => array(
         array(
             'type'    => 'notice',
-            'content' => '---》<a href="https://www.iowen.cn/wordpress-version-webstack/" target="_blank">查看教程</a>《---',
-            'class'   => 'info',
-        ),
-        array(
-            'type'    => 'notice',
-            'content' => '---》<a href="https://www.iotheme.cn/help" target="_blank">帮助中心</a>《---',
+            'content' => 'WebStack 网址导航主题设置',
             'class'   => 'info',
         ),
         array(
@@ -261,7 +256,7 @@ $options[] = array(
             'title'   => '图标源',
             'default' => 'https://t3.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=',
             'desc'    => 'api 地址',
-            'after'   => '默认api地址：https://t3.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=<br>如果获取图标失效，请百度搜索\'获取网站图标api\'替换能用的就可以了<br>或者自建api服务，源码地址：<a href="https://www.iowen.cn/favicon-api/" target="_blank">https://www.iowen.cn/favicon-api/</a>',
+            'after'   => '默认api地址：https://t3.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=<br>如果获取图标失效，请百度搜索\'获取网站图标api\'替换能用的就可以了',
         ),
         array(
             'id'      => 'url_format',
@@ -393,7 +388,7 @@ $options[] = array(
             'id'         => 'ad_home',
             'type'       => 'wysiwyg',
             'title'      => '首页顶部广告位内容',
-            'default'    => '<a href="https://www.iowen.cn/wordpress-version-webstack/" target="_blank"><img src="' . get_template_directory_uri() . '/screenshot.jpg" alt="广告也精彩" /></a>',
+            'default'    => '',
             'settings'   => array(
               'textarea_rows' => 5,
               'tinymce'       => false,
@@ -405,7 +400,7 @@ $options[] = array(
             'id'         => 'ad_right',
             'type'       => 'wysiwyg',
             'title'      => '详情页右边广告位内容',
-            'default'    => '<a href="https://www.iowen.cn/wordpress-version-webstack/" target="_blank"><img src="' . get_template_directory_uri() . '/screenshot.jpg" alt="广告也精彩" /></a>',
+            'default'    => '',
             'settings'   => array(
               'textarea_rows' => 5,
               'tinymce'       => false,
@@ -417,7 +412,7 @@ $options[] = array(
             'id'         => 'ad_footer',
             'type'       => 'wysiwyg',
             'title'      => 'footer广告位内容',
-            'default'    => '<a href="https://www.iowen.cn/wordpress-version-webstack/" target="_blank"><img src="' . get_template_directory_uri() . '/screenshot.jpg" alt="广告也精彩" /></a>',
+            'default'    => '',
             'settings'   => array(
               'textarea_rows' => 5,
               'tinymce'       => false,
@@ -503,28 +498,18 @@ $options[] = array(
 );
 
 // ----------------------------------------
-// 友情赞助-------------------------------
+// 关于-------------------------------------
 // ----------------------------------------
 $options[] = array(
-	'name'  => 'sponsor',
-	'title' => '友情赞助',
-	'icon'  => 'fa fa-qrcode',
+	'name'  => 'about',
+	'title' => '关于主题',
+	'icon'  => 'fa fa-info-circle',
 
   	'fields' => array(
 	
   		array(
 			'type'    => 'subheading',
-			'content' => '嘿！你好，欢迎使用WebStack主题。<br><br>目前这款主题为免费公开，如使用过程中遇到什么问题，可到博客<a href="https://www.iowen.cn" target="_blank">一为忆</a>反馈<br><br>制作一款WordPress主题不易，欢迎各位老板伸出援手，友情赞助！（你们的支持就是我最大的动力！）',
-		),
-	
-		array(
-			'id'      => 'io_zanzhu',
-			'type'    => 'image_select',
-			'title'   => '友情赞助',
-		    'options' => array(
-				'wechat'   => get_stylesheet_directory_uri() . '/images/wechat_qrcode.png',
-				'alipay' => get_stylesheet_directory_uri() . '/images/alipay_qrcode.png',
-		    ),
+			'content' => 'WebStack 网址导航主题（Version '.wp_get_theme()->get('Version').'）',
 		),
 	),
 );

@@ -428,7 +428,7 @@ msgstr "https://www.iotheme.cn"
 msgid ""
 "wordpress 导航主题！官方网站：<a href=\"https://www.iotheme.cn\">一为主题</"
 "a>，</br><a href=\"https://www.iotheme.cn/store/onenav.html\">升级到最新的"
-"OneNav导航主题</a>，体验更多功能"
+"wordpress 导航主题！"
 msgstr ""
 
 #. Author of the plugin/theme

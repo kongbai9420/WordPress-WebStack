@@ -1,9 +1,7 @@
 <?php
 /*
  * @Theme Name:WebStack
- * @Theme URI:https://www.iotheme.cn/
  * @Author: iowen
- * @Author URI: https://www.iowen.cn/
  * @Date: 2019-02-22 21:26:02
  * @LastEditors: iowen
  * @LastEditTime: 2024-07-30 23:22:56
@@ -193,7 +191,7 @@ add_action('in_admin_header', function(){
 });
 add_filter('admin_footer_text', 'left_admin_footer_text');
 function left_admin_footer_text($text) {
-    $text = '<span id="footer-thankyou">感谢您使用 <a href="https://www.iotheme.cn/" target="_blank">一为的 WordPress 主题</a></span>';
+    $text = '<span id="footer-thankyou">感谢您使用 WebStack WordPress 主题</span>';
     return $text;
 }
 
@@ -773,7 +771,7 @@ function io_login_footer(){
     echo '</div><!--login-body END-->
     </div><!--login-container END-->
     <div class="footer-copyright position-absolute">
-            <span>Copyright © <a href="'. esc_url(home_url()) .'" class="text-white-50" title="'. get_bloginfo('name') .'" rel="home">'. get_bloginfo('name') .'</a>&nbsp;&nbsp;Modify by <a href="https://www.iotheme.cn" target="_blank">一为</a></span> 
+        <span>Copyright © <a href="'. esc_url(home_url()) .'" class="text-white-50" title="'. get_bloginfo('name') .'" rel="home">'. get_bloginfo('name') .'</a>&nbsp;|&nbsp;Design by <a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank" class="text-white-50">Webstack</a>/<a href="https://github.com/owen0o0/WebStack" target="_blank" class="text-white-50">iowen</a>&nbsp;|&nbsp;Modify by <a href="https://github.com/kongbai9420/WordPress-WebStack" target="_blank" class="text-white-50">kong</a></span>
     </div>';
 }
 

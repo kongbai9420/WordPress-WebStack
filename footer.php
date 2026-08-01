@@ -32,8 +32,8 @@ if ($police_icp = io_get_option('police_icp')) {
                     <div class="footer-text footer-copyright-bar">
                         <span class="copyright-main">Copyright © <?php echo date('Y') ?> <?php bloginfo('name'); ?> <?php echo $_icp ?></span>
                         <span class="copyright-links">
-                            <span class="copyright-chip">Design by <a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank"><strong>Webstack</strong></a></span>
-                            <span class="copyright-chip">Modify by <a href="https://github.com/owen0o0/WebStack" target="_blank"><strong>iowen</strong></a></span>
+                            <span class="copyright-chip">Design by <a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank"><strong>Webstack</strong></a> / <a href="https://github.com/owen0o0/WebStack" target="_blank"><strong>iowen</strong></a></span>
+                            <span class="copyright-chip">Modify by <a href="https://github.com/kongbai9420/WordPress-WebStack" target="_blank"><strong>kong</strong></a></span>
                             <span class="copyright-chip">UI is driven by AI</span>
                         </span>
                     </div>

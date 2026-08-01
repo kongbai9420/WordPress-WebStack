@@ -1,0 +1,1269 @@
+/**
+ * ============================================================
+ * WebStack 主题 - CS Framework 深度重构样式
+ * Version: 1.0.0
+ * 说明: 覆盖 CS Framework 默认样式，实现现代化 UI
+ * ============================================================
+ */
+
+/* ============================================================
+   1. 全局变量与基础样式
+   ============================================================ */
+.cs-option-framework {
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  background: #f5f7fa;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  max-width: 1400px;
+  margin: 20px auto;
+}
+
+/* ============================================================
+   2. 头部区域 - 品牌渐变 + 现代化
+   ============================================================ */
+.cs-framework .csf-header {
+  position: relative;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.35);
+}
+
+.cs-framework .csf-header-inner {
+  background: transparent;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cs-framework .csf-header-inner h1 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  line-height: 1.4;
+  float: none;
+}
+
+.cs-framework .csf-header-inner h1 .cs-logo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  font-size: 16px;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(4px);
+}
+
+.cs-framework .csf-header-inner h1 span {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #fff;
+  backdrop-filter: blur(4px);
+  text-shadow: none;
+}
+
+.cs-framework .csf-header-inner h1 a {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff !important;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cs-framework .csf-header-inner h1 a:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.cs-framework .csf-header-inner fieldset {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  float: none;
+}
+
+.cs-framework .csf-header-inner fieldset input {
+  margin: 0;
+}
+
+/* 头部按钮现代化 */
+.cs-framework .csf-header-inner .button {
+  border-radius: 8px;
+  padding: 5px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.cs-framework .csf-header-inner .button-primary {
+  background: #ffffff !important;
+  color: #667eea !important;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.25) !important;
+}
+
+.cs-framework .csf-header-inner .button-primary:hover,
+.cs-framework .csf-header-inner .button-primary:focus {
+  background: #f0f0f0 !important;
+  color: #5a67d8 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3) !important;
+}
+
+.cs-framework .csf-header-inner .button-secondary {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: none;
+}
+
+.cs-framework .csf-header-inner .button-secondary:hover,
+.cs-framework .csf-header-inner .button-secondary:focus {
+  background: rgba(255, 255, 255, 0.22) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 保存状态提示 */
+.cs-framework .csf-header-inner #cs-save-ajax {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+}
+
+/* 显示所有选项按钮 */
+.cs-framework .cs-expand-all {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  right: 155px;
+  bottom: auto;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.cs-framework .cs-expand-all:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Sticky header 样式 */
+.cs-framework .csf-sticky .csf-header-inner {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+}
+
+/* ============================================================
+   3. 主体区域 - 现代化布局
+   ============================================================ */
+.cs-framework .cs-body {
+  background: #f5f7fa;
+  display: flex;
+  min-height: 600px;
+}
+
+/* ============================================================
+   4. 侧边栏导航 - 卡片式 + 搜索
+   ============================================================ */
+.cs-framework .cs-nav-background {
+  display: none;
+}
+
+.cs-framework .cs-nav {
+  position: relative;
+  float: none;
+  width: 230px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border-right: 1px solid #e8eaed;
+  padding: 15px 10px;
+  box-sizing: border-box;
+}
+
+.cs-framework .cs-content {
+  margin-left: 0;
+  flex: 1;
+  min-width: 0;
+  padding: 25px;
+  background: #f5f7fa;
+  position: relative;
+}
+
+/* 搜索框容器 */
+.cs-framework .cs-nav-search {
+  position: relative;
+  margin-bottom: 15px;
+  padding: 0;
+}
+
+.cs-framework .cs-nav-search input {
+  width: 100%;
+  padding: 9px 14px 9px 34px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #f8fafc;
+  font-size: 12px;
+  color: #334155;
+  transition: all 0.3s ease;
+  outline: none;
+  box-shadow: none;
+  height: 36px;
+}
+
+.cs-framework .cs-nav-search input:focus {
+  border-color: #667eea;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.cs-framework .cs-nav-search input::placeholder {
+  color: #94a3b8;
+}
+
+.cs-framework .cs-nav-search .cs-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 12px;
+  pointer-events: none;
+}
+
+.cs-framework .cs-nav-search .cs-search-clear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 12px;
+  cursor: pointer;
+  display: none;
+  padding: 2px 6px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.cs-framework .cs-nav-search .cs-search-clear:hover {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+/* 搜索结果提示 */
+.cs-framework .cs-nav-search-empty {
+  display: none;
+  padding: 20px 10px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.cs-framework .cs-nav-search-empty i {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: #cbd5e1;
+}
+
+/* 导航列表 */
+.cs-framework .cs-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cs-framework .cs-nav ul li {
+  margin: 2px 0;
+}
+
+.cs-framework .cs-nav ul li a {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px !important;
+  font-size: 13px;
+  color: #475569 !important;
+  border: none !important;
+  border-radius: 8px;
+  background: transparent !important;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-weight: 400;
+  position: relative;
+  text-decoration: none;
+}
+
+.cs-framework .cs-nav ul li a:hover {
+  background: #f1f5f9 !important;
+  color: #1e293b !important;
+  transform: translateX(2px);
+}
+
+.cs-framework .cs-nav ul li a .cs-icon {
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #64748b;
+  transition: all 0.3s ease;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.cs-framework .cs-nav ul li a:hover .cs-icon {
+  background: #e0e7ff;
+  color: #667eea;
+}
+
+/* 激活状态 */
+.cs-framework .cs-nav ul li a.cs-section-active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.35);
+}
+
+.cs-framework .cs-nav ul li a.cs-section-active .cs-icon {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.cs-framework .cs-nav ul li a.cs-section-active::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 20px;
+  background: #667eea;
+  border-radius: 0 4px 4px 0;
+}
+
+/* 移除激活项右侧对勾和原框架的三角形指示符 */
+.cs-framework .cs-nav ul li a.cs-section-active::after {
+  content: none !important;
+  display: none;
+}
+
+/* 字段数量徽标 */
+.cs-framework .cs-nav ul li a .cs-badge {
+  margin-left: auto;
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.cs-framework .cs-nav ul li a.cs-section-active .cs-badge {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.cs-framework .cs-nav ul li a:hover .cs-badge {
+  background: #e0e7ff;
+  color: #667eea;
+}
+
+/* 折叠子菜单按钮 */
+.cs-framework .cs-nav ul li .cs-arrow:after {
+  color: #94a3b8;
+  right: 12px;
+  font-size: 8px;
+  transition: transform 0.3s ease;
+}
+
+.cs-framework .cs-nav ul li a.cs-arrow:hover:after {
+  color: #667eea;
+}
+
+/* 子菜单 */
+.cs-framework .cs-nav ul ul {
+  border: none;
+  background: transparent;
+  padding-left: 35px;
+}
+
+.cs-framework .cs-nav ul ul::before {
+  background: #e2e8f0;
+  left: 17px;
+  width: 2px;
+  border-radius: 2px;
+}
+
+.cs-framework .cs-nav ul ul li a {
+  padding: 8px 14px !important;
+  font-size: 12px;
+  border-radius: 6px;
+}
+
+/* 分组标题 */
+.cs-framework .cs-nav .cs-seperator {
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 20px 14px 8px;
+  border-bottom: 1px solid #f1f5f9;
+  margin-top: 10px;
+}
+
+/* 搜索无结果时隐藏 nav li */
+.cs-framework .cs-nav li.cs-nav-hidden {
+  display: none !important;
+}
+
+/* ============================================================
+   5. 内容区字段 - 卡片化设计
+   ============================================================ */
+.cs-framework .cs-content .cs-sections {
+  float: none;
+}
+
+.cs-framework .cs-content .cs-section {
+  display: none;
+  animation: csFadeIn 0.3s ease;
+}
+
+@keyframes csFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cs-framework .cs-content .cs-section-title {
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.25);
+}
+
+.cs-framework .cs-content .cs-section-title h3 {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* 字段元素卡片化 */
+.cs-framework .cs-content .cs-element {
+  padding: 16px 24px;
+  background: #ffffff;
+  border: 1px solid #e8eaed;
+  border-radius: 0;
+  margin: 0;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cs-framework .cs-content .cs-element + .cs-element {
+  border-top: 1px solid #eef0f3;
+}
+
+/* 字段组 (notice 之后) 卡片化 */
+.cs-framework .cs-content .cs-field-notice ~ .cs-element {
+  border-radius: 0;
+}
+
+/* 每个 Notice 和其后的字段形成一个视觉分组 */
+.cs-framework .cs-content .cs-field-notice {
+  margin-top: 20px;
+  border-radius: 10px 10px 0 0 !important;
+  background: #ffffff !important;
+  border: 1px solid #e8eaed !important;
+  border-bottom: none !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.cs-framework .cs-content .cs-field-notice + .cs-element {
+  margin-top: 0;
+}
+
+/* 每组字段的最后一个元素 */
+.cs-framework .cs-content .cs-element:has(+ .cs-field-notice) {
+  border-bottom: 1px solid #e8eaed;
+  border-radius: 0 0 10px 10px;
+}
+
+/* Notice 现代化样式 */
+.cs-framework .cs-field-notice .cs-notice {
+  font-size: 12px;
+  padding: 14px 20px;
+  border: none;
+  position: relative;
+  font-weight: 500;
+}
+
+.cs-framework .cs-field-notice .cs-notice::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+}
+
+.cs-framework .cs-field-notice .cs-info {
+  color: #0369a1;
+  background: #f0f9ff;
+  border-radius: 0;
+}
+
+.cs-framework .cs-field-notice .cs-info::before {
+  background: #38bdf8;
+}
+
+.cs-framework .cs-field-notice .cs-success {
+  color: #15803d;
+  background: #f0fdf4;
+}
+
+.cs-framework .cs-field-notice .cs-success::before {
+  background: #22c55e;
+}
+
+.cs-framework .cs-field-notice .cs-warning {
+  color: #b45309;
+  background: #fffbeb;
+}
+
+.cs-framework .cs-field-notice .cs-warning::before {
+  background: #f59e0b;
+}
+
+.cs-framework .cs-field-notice .cs-danger {
+  color: #b91c1c;
+  background: #fef2f2;
+}
+
+.cs-framework .cs-field-notice .cs-danger::before {
+  background: #ef4444;
+}
+
+/* 字段标题 */
+.cs-framework .cs-element .cs-title {
+  width: 28%;
+  padding-top: 2px;
+}
+
+.cs-framework .cs-element .cs-title h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.5;
+}
+
+.cs-framework .cs-element .cs-fieldset {
+  margin-left: 30%;
+}
+
+/* ============================================================
+   6. 表单控件现代化
+   ============================================================ */
+.cs-framework .cs-element input[type="text"],
+.cs-framework .cs-element input[type="number"],
+.cs-framework .cs-element select,
+.cs-framework .cs-element textarea {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #334155;
+  transition: all 0.3s ease;
+  background: #f8fafc;
+  box-shadow: none;
+  max-width: 100%;
+}
+
+.cs-framework .cs-element input[type="text"]:focus,
+.cs-framework .cs-element input[type="number"]:focus,
+.cs-framework .cs-element select:focus,
+.cs-framework .cs-element textarea:focus {
+  border-color: #667eea;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  outline: none;
+}
+
+.cs-framework .cs-element input[type="text"] {
+  width: 100%;
+  padding: 8px 12px;
+}
+
+.cs-framework .cs-element textarea {
+  width: 100%;
+  padding: 10px 12px;
+}
+
+/* 帮助文字 */
+.cs-framework .cs-text-desc,
+.cs-framework .cs-text-muted {
+  color: #94a3b8;
+  font-size: 12px;
+  margin-top: 6px;
+  line-height: 1.6;
+}
+
+.cs-framework .cs-fieldset p {
+  color: #64748b;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.cs-framework .cs-fieldset p a {
+  color: #667eea;
+  text-decoration: none;
+}
+
+.cs-framework .cs-fieldset p a:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+/* ============================================================
+   7. Switcher 开关现代化
+   ============================================================ */
+.cs-framework .cs-field-switcher label {
+  width: 46px;
+  height: 24px;
+  border-radius: 12px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.cs-framework .cs-field-switcher label em {
+  background: #cbd5e1;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cs-framework .cs-field-switcher label span {
+  width: 16px;
+  height: 16px;
+  top: 4px;
+  left: 4px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: left 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cs-framework .cs-field-switcher label input:checked ~ em {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.35);
+}
+
+.cs-framework .cs-field-switcher label input:checked ~ span {
+  left: 26px;
+}
+
+.cs-framework .cs-field-switcher .cs-text-desc {
+  margin-left: 10px;
+  padding-top: 5px;
+}
+
+/* ============================================================
+   8. 按钮现代化
+   ============================================================ */
+.cs-framework .wp-core-ui .button,
+.cs-framework .cs-element .button {
+  border-radius: 8px;
+  padding: 4px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  color: #475569;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  height: auto;
+  line-height: 1.8;
+}
+
+.cs-framework .cs-element .button:hover,
+.cs-framework .cs-element .button:focus {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #1e293b;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.cs-framework .cs-element .button-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  border: none !important;
+  color: #fff !important;
+  box-shadow: 0 4px 14px rgba(102, 126, 234, 0.3) !important;
+}
+
+.cs-framework .cs-element .button-primary:hover,
+.cs-framework .cs-element .button-primary:focus {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b429d 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4) !important;
+}
+
+/* ============================================================
+   9. 图片上传与预览现代化
+   ============================================================ */
+.cs-framework .cs-field-image .cs-preview,
+.cs-framework .cs-field-upload .cs-preview {
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  padding: 6px;
+  background: #f8fafc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.cs-framework .cs-field-image .cs-preview:hover,
+.cs-framework .cs-field-upload .cs-preview:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.cs-framework .cs-field-image .cs-preview img,
+.cs-framework .cs-field-upload .cs-preview img {
+  max-height: 90px;
+  border-radius: 6px;
+}
+
+.cs-framework .cs-field-image .cs-remove,
+.cs-framework .cs-field-upload .cs-remove {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ef4444;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+  transition: all 0.3s ease;
+}
+
+.cs-framework .cs-field-image .cs-remove:hover,
+.cs-framework .cs-field-upload .cs-remove:hover {
+  transform: scale(1.1);
+  background: #dc2626;
+}
+
+/* ============================================================
+   10. Radio / Checkbox 现代化
+   ============================================================ */
+.cs-framework .cs-field-radio ul li,
+.cs-framework .cs-field-checkbox ul li {
+  padding: 6px 0;
+}
+
+.cs-framework .cs-field-radio input[type="radio"],
+.cs-framework .cs-field-checkbox input[type="checkbox"] {
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.cs-framework .cs-field-radio input[type="radio"] {
+  border-radius: 50%;
+}
+
+.cs-framework .cs-field-radio input[type="radio"]:checked,
+.cs-framework .cs-field-checkbox input[type="checkbox"]:checked {
+  border-color: #667eea;
+  background: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+}
+
+/* ============================================================
+   11. Image Select 现代化
+   ============================================================ */
+.cs-framework .cs-field-image_select {
+  background: #f8fafc !important;
+  border-radius: 10px;
+}
+
+.cs-framework .cs-field-image_select label {
+  margin: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cs-framework .cs-field-image_select label img {
+  border: 3px solid #e2e8f0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.cs-framework .cs-field-image_select input:checked ~ img {
+  border-color: #667eea;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+}
+
+/* ============================================================
+   12. Color Picker 现代化
+   ============================================================ */
+.cs-framework .cs-field-color_picker .wp-color-result {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================================
+   13. Heading / Subheading 现代化
+   ============================================================ */
+.cs-framework .cs-field-heading {
+  background: linear-gradient(135deg, #f1f5f9 0%, #f8fafc 100%) !important;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1e293b;
+  border-top: 1px solid #e2e8f0 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  margin: 20px 0 0 !important;
+  padding: 12px 24px !important;
+}
+
+.cs-framework .cs-field-subheading {
+  background: #f8fafc !important;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-top: 1px solid #e2e8f0 !important;
+  padding: 10px 24px !important;
+}
+
+/* ============================================================
+   14. 字段分组 Group / Fieldset 现代化
+   ============================================================ */
+.cs-framework .cs-field-group .cs-group-content {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.cs-framework .cs-field-group .cs-group-title {
+  border: none;
+  border-bottom: 1px solid #e2e8f0;
+  border-radius: 0;
+  background: #f8fafc;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.cs-framework .cs-field-group .cs-group-title:hover {
+  background: #f1f5f9;
+}
+
+/* ============================================================
+   15. 输入框提示 (Help icon)
+   ============================================================ */
+.cs-help {
+  color: #94a3b8;
+  font-size: 13px;
+  transition: color 0.3s ease;
+}
+
+.cs-help:hover {
+  color: #667eea;
+}
+
+/* ============================================================
+   16. WYSIWYG 编辑器现代化
+   ============================================================ */
+.cs-framework .cs-field-wysiwyg .wp-editor-container {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.cs-framework .cs-field-wysiwyg .wp-editor-tabs {
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   17. Footer 现代化
+   ============================================================ */
+.cs-framework .cs-footer {
+  background: #ffffff;
+  border-top: 1px solid #e8eaed;
+  padding: 15px 25px;
+  color: #94a3b8;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cs-framework .cs-footer a {
+  color: #667eea;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.cs-framework .cs-footer a:hover {
+  color: #764ba2;
+}
+
+.cs-framework .cs-footer .cs-block-left {
+  color: #94a3b8;
+}
+
+.cs-framework .cs-footer .cs-block-right {
+  color: #94a3b8;
+}
+
+/* ============================================================
+   18. Toast 通知 - 保存反馈现代化
+   ============================================================ */
+#cs-toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.cs-toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  min-width: 280px;
+  max-width: 380px;
+  animation: csToastIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.4s ease;
+}
+
+.cs-toast.cs-toast-hiding {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+@keyframes csToastIn {
+  from {
+    opacity: 0;
+    transform: translateX(50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.cs-toast-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.cs-toast-success .cs-toast-icon {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.cs-toast-error .cs-toast-icon {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.cs-toast-info .cs-toast-icon {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.cs-toast-content {
+  flex: 1;
+}
+
+.cs-toast-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 2px;
+}
+
+.cs-toast-message {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.cs-toast-close {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.cs-toast-close:hover {
+  color: #1e293b;
+  background: #f1f5f9;
+}
+
+/* ============================================================
+   19. 分区指示器 / 分组标签
+   ============================================================ */
+.cs-framework .cs-content .cs-section-description {
+  background: linear-gradient(135deg, #f1f5f9 0%, #f8fafc 100%);
+  color: #475569;
+  font-size: 12px;
+  padding: 10px 20px;
+  border-left: 3px solid #667eea;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   20. 响应式适配
+   ============================================================ */
+@media only screen and (max-width: 1280px) {
+  .cs-framework .cs-content {
+    padding: 15px;
+  }
+
+  .cs-framework .cs-element .cs-title {
+    width: 30%;
+  }
+
+  .cs-framework .cs-element .cs-fieldset {
+    margin-left: 33%;
+  }
+}
+
+@media only screen and (max-width: 782px) {
+  .cs-option-framework {
+    margin: 10px;
+    border-radius: 8px;
+  }
+
+  .cs-framework .cs-body {
+    flex-direction: column-reverse;
+  }
+
+  .cs-framework .cs-nav-background,
+  .cs-framework .cs-nav {
+    position: static;
+    width: 100%;
+    display: block !important;
+    border-right: none;
+    border-bottom: 1px solid #e8eaed;
+    padding: 10px;
+  }
+
+  .cs-framework .cs-nav ul {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 4px;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .cs-framework .cs-nav ul li {
+    flex-shrink: 0;
+    margin: 0;
+  }
+
+  .cs-framework .cs-nav ul li a {
+    padding: 8px 14px !important;
+    white-space: nowrap;
+    border-radius: 20px;
+  }
+
+  .cs-framework .cs-nav ul li a .cs-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+
+  .cs-framework .cs-nav ul li a.cs-section-active::before {
+    display: none;
+  }
+
+  .cs-framework .cs-nav ul li a.cs-section-active::after {
+    display: none;
+  }
+
+  .cs-framework .cs-nav ul ul,
+  .cs-framework .cs-nav ul ul:before {
+    display: none !important;
+  }
+
+  /* 搜索框在移动端简化 */
+  .cs-framework .cs-nav-search {
+    display: none;
+  }
+
+  .cs-framework .cs-content {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .cs-framework .cs-element .cs-title {
+    float: none;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .cs-framework .cs-element .cs-fieldset {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .cs-framework .csf-header-inner {
+    padding: 15px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cs-framework .csf-header-inner h1 {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cs-framework .csf-header-inner fieldset {
+    justify-content: center;
+  }
+
+  .cs-framework .cs-expand-all {
+    position: static;
+    transform: none;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+
+  .cs-framework .cs-footer {
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .cs-framework .csf-header-inner h1 {
+    font-size: 16px;
+  }
+
+  .cs-framework .cs-content .cs-element {
+    padding: 12px 16px;
+  }
+
+  .cs-toast {
+    min-width: auto;
+    max-width: calc(100vw - 40px);
+  }
+}
+
+/* ============================================================
+   21. 滚动条美化
+   ============================================================ */
+.cs-framework .cs-nav::-webkit-scrollbar {
+  width: 4px;
+}
+
+.cs-framework .cs-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cs-framework .cs-nav::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 2px;
+}
+
+.cs-framework .cs-nav::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ============================================================
+   22. 显示所有选项模式
+   ============================================================ */
+.cs-framework .cs-show-all .cs-nav-background,
+.cs-framework .cs-show-all .cs-nav {
+  display: none;
+}
+
+.cs-framework .cs-show-all .cs-content {
+  margin-left: 0;
+  padding: 25px;
+}
+
+.cs-framework .cs-show-all .cs-section-title {
+  display: block !important;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.cs-framework .cs-show-all .cs-section {
+  display: block !important;
+  margin-bottom: 30px;
+}
+
+/* ============================================================
+   23. 禁用状态样式
+   ============================================================ */
+.cs-framework .cs-element .cs-element-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
