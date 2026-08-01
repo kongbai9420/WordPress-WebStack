@@ -235,6 +235,11 @@ footer.main-footer{border-top:0;background-color:transparent}
 .blur-layer{top:0;left:0;right:0;bottom:0;position:absolute;width:inherit;height:inherit;opacity:.2}
 .img-cover{height:72px;width:72px;position:absolute;top:0;bottom:0;left:0;right:0;margin:auto;border:2px solid hsla(0,0%,100%,.9);border-radius:50%;animation:rotate 6s linear infinite;background:#fff}
 @keyframes rotate{0%{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* 详情页图标旋转开关控制：默认不旋转，开启后按原效果旋转 */
+body.single-sites .siteico .img-cover{animation:none;}
+body.single-sites .siteico-rotate .blur-layer{animation:rotate 30s linear infinite;}
+body.single-sites .siteico-rotate .img-cover{animation:rotate 6s linear infinite;}
 .site-body .btn{border-radius:6px;padding:7px 16px;background-color:rgba(138,138,138,.15);transition:.3s}
 .site-body .btn:hover{color:#fff;background:#202224}
 .site-body .btn:active{box-shadow:unset}
@@ -967,8 +972,8 @@ input[type="submit"]:hover,
   min-height:auto;
   padding:6px 10px;
   font-size:12px;
-  background:#111827;
-  color:#fff;
+  background:var(--apple-secondary);
+  color:var(--apple-text);
 }
 
 .btn-move{
@@ -1640,6 +1645,7 @@ footer.main-footer .go-up a:hover{
 
 .black .btn-move:hover,
 .black .site-body .btn:hover,
+.black .btn-cat:hover,
 .black .posts-nav .page-numbers:not(.dots):hover,
 .black .comment-reply-link:hover{
   background:#343b48;

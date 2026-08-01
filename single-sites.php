@@ -42,16 +42,28 @@ include( 'templates/header-nav.php' );
                             <div class="col-12 col-sm-4 col-lg-3">
                                 <?php
                                 $m_link_url  = get_post_meta($post->ID, '_sites_link', true);
-                                $m_thumbnail = get_post_meta(get_the_ID(), '_thumbnail', true);
-                                if ($m_thumbnail == '' && $m_link_url == '')
-                                    $imgurl = get_theme_file_uri('/images/favicon.png');
-                                else
-                                    $imgurl = $m_thumbnail ? $m_thumbnail : (io_get_option('ico_url') . format_url($m_link_url) . io_get_option('ico_png'));
-                                $sitetitle = get_the_title();
+                                $default_ico = get_theme_file_uri('/images/favicon.png');
+                                $m_thumbnail = io_theme_get_thumb();
+                                if ($m_thumbnail) {
+                                    // 有自定义图标时直接使用，加载失败降级为默认图标
+                                    $imgurl        = $m_thumbnail;
+                                    $onerror_chain = "this.onerror=null;this.src='" . esc_js($default_ico) . "'";
+                                } else {
+                                    // 无自定义图标，使用多源 favicon API 获取网站图标，失败时自动降级
+                                    $ico_urls = io_get_favicon_urls($m_link_url, $default_ico);
+                                    $imgurl   = array_shift($ico_urls);
+                                    if (!empty($ico_urls)) {
+                                        $onerror_chain = build_onerror_chain($ico_urls);
+                                    } else {
+                                        $onerror_chain = "this.onerror=null;this.src='" . esc_js($default_ico) . "'";
+                                    }
+                                }
+                                $sitetitle      = get_the_title();
+                                $siteico_rotate = io_get_option('siteico_rotate') ? ' siteico-rotate' : '';
                                 ?>
-                                <div class="siteico">
-                                    <div class="blur blur-layer" style="background: transparent url(<?php echo $imgurl ?>) no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;animation: rotate 30s linear infinite;"></div>
-                                    <img class="img-cover" src="<?php echo $imgurl ?>" alt="<?php echo $sitetitle ?>" title="<?php echo $sitetitle ?>">
+                                <div class="siteico<?php echo $siteico_rotate ?>">
+                                    <div class="blur blur-layer" style="background: transparent url(<?php echo $imgurl ?>) no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;"></div>
+                                    <img class="img-cover" src="<?php echo $imgurl ?>" onerror="<?php echo $onerror_chain ?>" alt="<?php echo $sitetitle ?>" title="<?php echo $sitetitle ?>">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-8 col-lg-5 mt-4 mt-md-0">

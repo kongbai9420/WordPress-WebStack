@@ -135,6 +135,14 @@ $options[] = array(
             'default' => false,
         ),
         array(
+            'id'      => 'siteico_rotate',
+            'type'    => 'switcher',
+            'title'   => '详情页图标旋转',
+            'desc'    => '网站详情页的图标是否旋转展示',
+            'after'   => '<br><p>开启后详情页图标缓慢旋转（默认关闭）</p>',
+            'default' => false,
+        ),
+        array(
             'id'      => 'po_prompt',
             'type'    => 'radio',
             'title'   => '网址块弹窗提示',
