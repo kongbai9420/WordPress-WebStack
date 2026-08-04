@@ -762,7 +762,7 @@ function attrDefault($el, data_var, default_val)
     if (typeof window.theme === 'undefined' || !window.theme.ajaxurl) {
         return;
     }
-    if (window.theme.nav_stats_enabled !== true) {
+    if (!(window.theme.nav_stats_enabled === true || window.theme.nav_stats_enabled === '1' || window.theme.nav_stats_enabled === 1)) {
         return;
     }
     if (!$('#nav-live-online').length && !$('#nav-live-today').length && !$('#nav-live-total').length) {
