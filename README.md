@@ -1,9 +1,10 @@
-# WebStack-2026.8.4
-WordPress 版 WebStack-2026.8.4 导航网主题。<a href="https://dh.kongbaige.net/">前往演示站</a>
+# WebStack-2026.8.5
+WordPress 版 WebStack-2026.8.5 导航主题。<a href="https://dh.kongbaige.net/">前往演示站</a>
 本主题基于<a href="https://github.com/owen0o0/WebStack" target="_blank">owen0o0/WebStack</a>修改
 使用AI优化UI风格，偏向于苹果风（不知道算不算）
 
 ### 更新日志
+- **WebStack-2026.8.5** 修复远程站点实时在线人数不更新问题，兼容访客统计开关返回类型，并更新静态资源版本号以避免缓存旧脚本
 - **WebStack-2026.8.4** 新增页脚访客统计、实时在线人数、访问量防刷新限流，优化 Apple 风格 UI、公告栏显示和首页分类跳转定位
 - **v1.2026.1** 安全加固：修复 CVE-2026-1555 任意文件上传漏洞，添加 Nonce CSRF 防护，修复页面持续加载问题  
 
