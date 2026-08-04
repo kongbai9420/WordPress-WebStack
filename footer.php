@@ -30,7 +30,7 @@ if ($police_icp = io_get_option('police_icp')) {
                 <div class="footer-inner">
                     <!---请保留版权说明，谢谢---->
                     <div class="footer-text footer-copyright-bar">
-                        <span class="copyright-main">Copyright © <?php echo date('Y') ?> <?php bloginfo('name'); ?> <?php echo $_icp ?></span>
+                        <span class="copyright-main">Copyright © <?php echo date('Y') ?> <?php bloginfo('name'); ?> <?php echo $_icp ?><?php nav_stats_footer_widget(); ?></span>
                         <span class="copyright-links">
                             <span class="copyright-chip">Design by <a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank"><strong>Webstack</strong></a> / <a href="https://github.com/owen0o0/WebStack" target="_blank"><strong>iowen</strong></a></span>
                             <span class="copyright-chip">Modify by <a href="https://github.com/kongbai9420/WordPress-WebStack" target="_blank"><strong>kong</strong></a></span>
@@ -45,18 +45,35 @@ if ($police_icp = io_get_option('police_icp')) {
 <?php if (is_home() || is_front_page()): ?>
     <script type="text/javascript">
     $(document).ready(function() {
+        var anchorOffset = 18;
+
+        function scrollToAnchor(target, extraOffset) {
+            var $target = $(target);
+            if (!$target.length) {
+                return;
+            }
+            var $section = $target.closest('.fav-section');
+            if ($section.length) {
+                $target = $section;
+            }
+            var offset = typeof extraOffset === 'number' ? extraOffset : 0;
+            var pos = Math.max(0, $target.offset().top - offset);
+            $("html, body").animate({
+                scrollTop: pos
+            }, {
+                duration: 500,
+                easing: "swing"
+            });
+        }
+
         setTimeout(function () { 
             if($('a.smooth[href="'+window.location.hash+'"]')[0]){
                 $('a.smooth[href="'+window.location.hash+'"]').click();
             } else if(window.location.hash != ''){
-                $("html, body").animate({
-                    scrollTop: $(window.location.hash).offset().top - 80
-                }, {
-                    duration: 500,
-                    easing: "swing"
-                });
+                scrollToAnchor(window.location.hash, anchorOffset);
             }
         }, 300);
+
         $(document).on('click', '.has-sub', function(){
             var _this = $(this)
             if(!$(this).hasClass('expanded')) {
@@ -85,37 +102,29 @@ if ($police_icp = io_get_option('police_icp')) {
             $(this).siblings('li').removeClass('active'); // 删除其他兄弟元素的样式
             $(this).addClass('active'); // 添加当前元素的样式
         });
-        $("a.smooth").click(function(ev) {
-            ev.preventDefault();
-            if($("#main-menu").hasClass('mobile-is-visible') != true)
-                return;
-            public_vars.$mainMenu.add(public_vars.$sidebarProfile).toggleClass('mobile-is-visible');
-            ps_destroy();
-            $("html, body").animate({
-                scrollTop: $($(this).attr("href")).offset().top - 80
-            }, {
-                duration: 500,
-                easing: "swing"
-            });
-        });
-        return false;
-    });
 
-    var href = "";
-    var pos = 0;
-    $("a.smooth").click(function(e) {
-        e.preventDefault();
-        if($("#main-menu").hasClass('mobile-is-visible') === true)
-            return;
-        $("#main-menu li").each(function() {
-            $(this).removeClass("active");
+        $("a.smooth").click(function(e) {
+            e.preventDefault();
+
+            var href = $(this).attr("href");
+            if(!href || href.charAt(0) !== '#') {
+                window.location.href = href;
+                return;
+            }
+
+            if($("#main-menu").hasClass('mobile-is-visible') === true) {
+                public_vars.$mainMenu.add(public_vars.$sidebarProfile).toggleClass('mobile-is-visible');
+                ps_destroy();
+                scrollToAnchor(href, anchorOffset);
+                return;
+            }
+
+            $("#main-menu li").each(function() {
+                $(this).removeClass("active");
+            });
+            $(this).parent("li").addClass("active");
+            scrollToAnchor(href, anchorOffset);
         });
-        $(this).parent("li").addClass("active");
-        href = $(this).attr("href");
-        pos = $(href).position().top - 100;
-        $("html,body").animate({
-            scrollTop: pos
-        }, 500);
     });
     </script>
 <?php endif; ?>

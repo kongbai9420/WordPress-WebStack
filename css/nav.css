@@ -275,7 +275,7 @@ body.single-sites .siteico-rotate .img-cover{animation:rotate 6s linear infinite
 .pt-4,.py-4{padding-top:3rem!important}
 .border-top{border-top:1px solid rgba(130,130,130,.1)!important}
 .main-content .tooltip{word-break:break-word}
-#bulletin_box{margin:0 auto 20px;padding:0}
+#bulletin_box{margin:0 auto 20px;padding:10px 14px;box-sizing:border-box}
 #bulletin_box .bulletin-ul{padding-left:0}
 .bulletin{
   box-sizing:border-box;
@@ -298,6 +298,7 @@ body.single-sites .siteico-rotate .img-cover{animation:rotate 6s linear infinite
   gap:10px;
   min-height:52px;
   flex-wrap:nowrap;
+  width:100%;
 }
 
 .bulletin-icon,
@@ -792,7 +793,8 @@ body.apple-ui p{
 #bulletin_box{
   max-width:var(--apple-content);
   margin:0 auto 20px;
-  padding:0;
+  padding:10px 14px;
+  box-sizing:border-box;
 }
 
 .bulletin{
@@ -1074,6 +1076,7 @@ input[type="submit"]:hover,
   border-radius:28px;
   box-shadow:var(--apple-shadow-soft);
   animation:none;
+  scroll-margin-top:18px;
 }
 
 .fav-section:nth-of-type(2){animation-delay:.06s}
@@ -1088,7 +1091,6 @@ input[type="submit"]:hover,
   justify-content:space-between;
   gap:16px;
   margin-bottom:18px;
-  scroll-margin-top: 90px;
 }
 
 .section-title,
@@ -1433,6 +1435,34 @@ footer.main-footer .go-up a:hover{
     transform:translate3d(0,0,0);
   }
 }
+
+/* =========================================================
+ * 页脚访客统计组件（独立胶囊 UI，跟随主题明暗自动适配）
+ * ========================================================= */
+.footer-copyright-bar .nav-live-widget{
+  display:inline-flex;
+  align-items:center;
+  gap:2px;
+  flex:0 1 auto;
+  padding:4px 6px;
+  margin:0 0 0 8px;
+  background:var(--apple-card);
+  border:1px solid rgba(15,23,42,.08);
+  border-radius:var(--apple-pill);
+  box-shadow:var(--apple-shadow-soft);
+  transition:background-color .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.nav-live-item{ display:inline-flex; align-items:center; gap:5px; min-height:26px; padding:3px 10px; border-radius:999px; white-space:nowrap; }
+.nav-live-item + .nav-live-item{ border-left:1px solid rgba(15,23,42,.08); }
+.nav-live-dot{ width:8px; height:8px; border-radius:50%; background:var(--nav-live-green,#35c759); box-shadow:0 0 0 0 rgba(53,199,89,.5); animation:navLivePulse 2s infinite; flex:none; }
+.nav-live-value{ font-size:14px; font-weight:700; line-height:1; color:var(--apple-text); font-variant-numeric:tabular-nums; min-width:18px; }
+.nav-live-label{ font-size:11px; line-height:1; color:var(--apple-muted); }
+.nav-live-icon{ font-size:10px; line-height:1; color:var(--apple-muted); border:1px solid rgba(15,23,42,.12); border-radius:5px; padding:2px 3px; flex:none; }
+@keyframes navLivePulse{ 0%{box-shadow:0 0 0 0 rgba(53,199,89,.5);} 70%{box-shadow:0 0 0 7px rgba(53,199,89,0);} 100%{box-shadow:0 0 0 0 rgba(53,199,89,0);} }
+.black .footer-copyright-bar .nav-live-widget{ background:var(--apple-card); border-color:rgba(255,255,255,.08); }
+.black .nav-live-item + .nav-live-item{ border-left-color:rgba(255,255,255,.08); }
+.black .nav-live-icon{ border-color:rgba(255,255,255,.16); }
+@media (max-width:767px){ .footer-copyright-bar .nav-live-widget{ justify-content:flex-start; flex-wrap:wrap; border-radius:14px; padding:6px 4px; } .nav-live-item{ padding:3px 8px; gap:4px; } }
 
 .black{
   --apple-bg:#0e1116;
@@ -1975,6 +2005,10 @@ footer.main-footer .go-up a:hover{
 
   .bulletin-wrap{
     gap:8px;
+  }
+
+  #bulletin_box{
+    padding:8px 10px;
   }
 
   .bulletin-icon,

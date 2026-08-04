@@ -49,6 +49,8 @@ function theme_load_scripts() {
 		'version'       => $theme_version,
 		'upload_nonce'  => wp_create_nonce( 'io_img_upload_nonce' ),
 		'remove_nonce'  => wp_create_nonce( 'io_img_remove_nonce' ),
+		'nav_stats_nonce' => wp_create_nonce( 'nav_stats_nonce' ),
+		'nav_stats_enabled' => function_exists( 'nav_stats_is_enabled' ) ? nav_stats_is_enabled() : false,
 	)); 
 }
 add_action('wp_enqueue_scripts', 'theme_load_scripts');

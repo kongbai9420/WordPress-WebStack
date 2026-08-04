@@ -291,6 +291,106 @@ $options[] = array(
 );
 
 // ----------------------------------------
+// 访客统计 ------------------------------
+// ----------------------------------------
+$options[] = array(
+	'name'  => 'nav_stats',
+	'title' => '访客统计',
+	'icon'  => 'fa fa-bar-chart',
+	'fields' => array(
+		array(
+			'type'    => 'notice',
+			'content' => '页脚访客统计组件：实时在线人数、今日访问量、总访问量',
+			'class'   => 'info',
+		),
+		array(
+			'id'      => 'nav_stats_enable',
+			'type'    => 'switcher',
+			'title'   => '启用页脚访客统计',
+			'desc'    => '开启后才会在页脚显示访客统计组件，并开始记录数据（默认关闭）',
+			'default' => false,
+		),
+		array(
+			'id'         => 'nav_stats_scope',
+			'type'       => 'radio',
+			'title'      => '显示位置',
+			'default'    => 'home',
+			'class'      => 'horizontal',
+			'options'    => array(
+				'home' => '仅首页',
+				'all'  => '所有页面',
+			),
+			'dependency' => array( 'nav_stats_enable', '==', 'true' ),
+		),
+		array(
+			'type'    => 'notice',
+			'content' => '显示内容',
+			'class'   => 'info',
+		),
+		array(
+			'id'         => 'nav_stats_show_online',
+			'type'       => 'switcher',
+			'title'      => '显示实时在线人数',
+			'desc'       => '统计最近几分钟内有活跃的独立访客数',
+			'default'    => true,
+			'dependency' => array( 'nav_stats_enable', '==', 'true' ),
+		),
+		array(
+			'id'         => 'nav_stats_show_today',
+			'type'       => 'switcher',
+			'title'      => '显示今日访问量',
+			'desc'       => '当天页面访问次数（PV），按站点时区每日归零',
+			'default'    => false,
+			'dependency' => array( 'nav_stats_enable', '==', 'true' ),
+		),
+		array(
+			'id'         => 'nav_stats_show_total',
+			'type'       => 'switcher',
+			'title'      => '显示总访问量',
+			'desc'       => '启用以来累计的页面访问次数',
+			'default'    => false,
+			'dependency' => array( 'nav_stats_enable', '==', 'true' ),
+		),
+		array(
+			'type'    => 'notice',
+			'content' => '统计参数',
+			'class'   => 'info',
+		),
+		array(
+			'id'         => 'nav_stats_window',
+			'type'       => 'text',
+			'title'      => '在线判定窗口（分钟）',
+			'desc'       => '多少分钟内有心跳算作“在线”，默认 5，范围 1-60',
+			'default'    => '5',
+			'dependency' => array( 'nav_stats_enable', '==', 'true' ),
+		),
+		array(
+			'id'         => 'nav_stats_pv_throttle_enable',
+			'type'       => 'switcher',
+			'title'      => '启用访问量防刷新限流',
+			'desc'       => '开启后，同一访客在设定时间内重复刷新只计 1 次访问；关闭后每次正常页面加载都会计入 PV',
+			'default'    => true,
+			'dependency' => array( 'nav_stats_enable', '==', 'true' ),
+		),
+		array(
+			'id'         => 'nav_stats_pv_throttle_seconds',
+			'type'       => 'number',
+			'title'      => '访问量重复计数间隔（秒）',
+			'desc'       => '同一访客在此时间内重复刷新不重复计入 PV，默认 30 秒，范围 5-300 秒',
+			'default'    => 30,
+			'after'      => '建议普通导航网设置为 30-60 秒',
+			'dependency' => array( 'nav_stats_pv_throttle_enable', '==', 'true' ),
+		),
+		array(
+			'type'    => 'notice',
+			'content' => '统计通过 WordPress AJAX 实时上报，不保存明文 IP，不会修改原有文章、用户等数据，仅新增专用统计表。',
+			'class'   => 'info',
+			'dependency' => array( 'nav_stats_enable', '==', 'true' ),
+		),
+	),
+);
+
+// ----------------------------------------
 // SEO-------------------------------------
 // ----------------------------------------
 $options[] = array(
