@@ -769,7 +769,8 @@ function attrDefault($el, data_var, default_val)
         return;
     }
 
-    var HEARTBEAT = 60000;
+    // 30 秒续期一次，避免在线窗口设置为 1 分钟时因浏览器定时器延迟而掉线。
+    var HEARTBEAT = 30000;
     var $online = $('#nav-live-online');
     var $today = $('#nav-live-today');
     var $total = $('#nav-live-total');

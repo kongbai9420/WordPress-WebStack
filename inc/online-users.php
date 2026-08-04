@@ -311,7 +311,8 @@ function nav_stats_heartbeat_ajax() {
 	if ( $last ) {
 		$last_ts = strtotime( $last . ' UTC' );
 		if ( $last_ts && ( time() - $last_ts ) < $min_interval ) {
-			// 未到更新时间，不写入，直接返回缓存数据，避免刷库
+			// 未到更新时间，不写入；清除在线人数缓存后重新查询，避免返回过期的 0。
+			delete_transient( 'nav_stats_online_count' );
 			wp_send_json_success( array(
 				'online' => nav_stats_online_count(),
 				'today'  => nav_stats_today_views(),
