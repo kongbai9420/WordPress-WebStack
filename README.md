@@ -3,8 +3,8 @@ WordPress 版 WebStack-2026.8.5 导航主题。<a href="https://dh.kongbaige.net
 本主题基于<a href="https://github.com/owen0o0/WebStack" target="_blank">owen0o0/WebStack</a>修改
 使用AI优化UI风格，偏向于苹果风（不知道算不算）
 
-本主题<a href="https://t.me/WebStack_kong" target="_blank">TG频道</a>
-本主题<a href="https://t.me/+zIx2kbaAaWxkNzU9" target="_blank">TG群组</a>
+- 本主题<a href="https://t.me/WebStack_kong" target="_blank">TG频道</a>
+- 本主题<a href="https://t.me/+zIx2kbaAaWxkNzU9" target="_blank">TG群组</a>
 
 ### 更新日志
 - **WebStack-2026.8.5** 修复远程站点实时在线人数不更新问题，兼容访客统计开关返回类型，并更新静态资源版本号以避免缓存旧脚本
@@ -43,6 +43,7 @@ WordPress 版 WebStack-2026.8.5 导航主题。<a href="https://dh.kongbaige.net
 | 我的导航站 | [https://dh.kongbaige.net](https://dh.kongbaige.net) | 二次元网站导航 | 个人站点 |
 
 
+<br/>
 
 ### 以下为owen0o0/WebStack原声明及其教程
 当你使用 WebStack 主题发布文章、文字、图片、视频等内容均属于你自己的行为，你的这些行为所带来的安全或法律风险均需自行承担。
