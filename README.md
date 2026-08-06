@@ -27,17 +27,25 @@ WordPress 版 WebStack-2026.8.5 导航主题。<a href="https://dh.kongbaige.net
 
 <br/>
 
+#### 推荐环境
+
+- WordPress：6.0 及以上，建议使用最新稳定版本
+- PHP：8.1 或 8.2
+- 数据库：MySQL 5.7/8.0 或 MariaDB 10.4 及以上
+- Web 服务器：Nginx 或 Apache
 
 <br/>
+
+### 使用本主题的站点
+
+| 站点名称 | 网站地址 | 网站简介 | 备注 |
+| :--- | :--- | :--- | :--- |
+| 我的导航站 | [https://dh.kongbaige.net](https://dh.kongbaige.net) | 二次元网站导航 | 个人站点 |
+
+
 
 ### 以下为owen0o0/WebStack原声明及其教程
 当你使用 WebStack 主题发布文章、文字、图片、视频等内容均属于你自己的行为，你的这些行为所带来的安全或法律风险均需自行承担。
-
-### 环境要求
-+ WordPress 4.4+
-+ WordPress 伪静态
-+ PHP 5.7+ 7.0+
-<br/>
 
 ### 安装指南
 + 安装 WordPress ，教程百度
@@ -78,13 +86,6 @@ RewriteRule . /index.php [L]
 + 如果菜单里没有css类，请按下图添加
 ![Thumbnail_index](https://owen0o0.github.io/ioStaticResources/webstack/04.jpg)
 + <a href="https://www.iotheme.cn/store/onenav.html" target="_blank">如果你有更多功能需求，点我-></a>
-<br/>
-
-### 后台截图
-<br/>
-
-![Thumbnail_index](https://owen0o0.github.io/ioStaticResources/webstack/05.jpg)
-![Thumbnail_index](https://owen0o0.github.io/ioStaticResources/webstack/06.png)
 <br/>
 
 ### 感谢
