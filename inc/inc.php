@@ -888,37 +888,53 @@ function io_get_post_first_img($is_array = false){
  * 原文地址：https://www.iowen.cn/chundaimameihuawordpressmorendengluye/
  */
 function custom_login_style(){
-    $login_color_l = io_get_option('login_color_l','#7d00a0');
-    $login_color_r = io_get_option('login_color_r','#c11b8d');
+    $login_color_l = io_get_option('login_color_l','#5b5bd6');
+    $login_color_r = io_get_option('login_color_r','#8e8ef5');
     echo '<style type="text/css">
-    body{background:'.$login_color_l.';background:-o-linear-gradient(45deg,'.$login_color_l.','.$login_color_r.');background:linear-gradient(45deg,'.$login_color_l.','.$login_color_r.');height:100vh}
-    .login h1 a{background-image:url('.io_get_option('login_logo',get_theme_file_uri('/images/logo_dark@2x.png')).');width:180px;background-position:center center;background-size:'.io_get_option('login_logo_size',160).'px}
-    .login-container{position:relative;display:flex;align-items:center;justify-content:center;height:100vh}
-    .login-body{position:relative;display:flex;margin:0 1.5rem}
-    .login-img{display:none}
-    .img-bg{color:#fff;padding:2rem;bottom:-2rem;left:0;top:-2rem;right:0;border-radius:10px;background-image:url('.io_get_option('login_img',get_theme_file_uri('/images/login.jpg')).');background-repeat:no-repeat;background-position:center center;background-size:cover}
-    .img-bg h2{font-size:2rem;margin-bottom:1.25rem}
-    #login{position:relative;background:#fff;border-radius:10px;padding:28px;width:280px;box-shadow:0 1rem 3rem rgba(0,0,0,.175)}
-    .flex-fill{flex:1 1 auto}
-    .position-relative{position:relative}
-    .position-absolute{position:absolute}
-    .shadow-lg{box-shadow:0 1rem 3rem rgba(0,0,0,.175)!important}
-    .footer-copyright{bottom:0;color:rgba(255,255,255,.6);text-align:center;margin:20px;left:0;right:0}
-    .footer-copyright a{color:rgba(255,255,255,.6);text-decoration:none}
-    #login form{-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;border-width:0;padding:0}
-    #login form .forgetmenot{float:none}
-    .login #login_error,.login .message,.login .success{border-left-color:#40b9f1;box-shadow:none;background:#d4eeff;border-radius:6px;color:#2e73b7}
-    .login #login_error{border-left-color:#f1404b;background:#ffd4d6;color:#b72e37}
-    #login form p.submit{padding:20px 0 0}
-    #login form p.submit .button-primary{float:none;background-color:#f1404b;font-weight:bold;color:#fff;width:100%;height:40px;border-width:0;text-shadow:none!important;border-color:none;transition:.5s}
-    #login form input{box-shadow:none!important;outline:none!important}
-    #login form p.submit .button-primary:hover{background-color:#444}
-    .login #backtoblog,.login #nav{padding:0}
-    @media screen and (min-width:768px){.login-body{width:1200px}
-    .login-img{display:block}
-    #login{margin-left:-60px;padding:40px}
+    /* ===== WebStack 苹果风登录页 ===== */
+    body.login{height:100vh;min-height:600px;background:'.$login_color_l.';background:-o-linear-gradient(135deg,'.$login_color_l.','.$login_color_r.');background:linear-gradient(135deg,'.$login_color_l.','.$login_color_r.');font-family:-apple-system,BlinkMacSystemFont,"SF Pro SC","PingFang SC","Segoe UI","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+    .login-container{position:relative;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem 1.25rem;box-sizing:border-box}
+    .login-body{position:relative;display:flex;align-items:stretch;width:100%;max-width:1080px;margin:0 auto}
+    .login-img{display:none;flex:1.1;position:relative}
+    .img-bg{position:absolute;inset:0;border-radius:24px;background-image:url('.io_get_option('login_img',get_theme_file_uri('/images/login.jpg')).');background-repeat:no-repeat;background-position:center center;background-size:cover;box-shadow:0 30px 70px rgba(0,0,0,.22);overflow:hidden}
+    .img-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 0%,rgba(0,0,0,.28) 100%)}
+    .login-info{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:flex-end;height:100%;padding:2.5rem;color:#fff}
+    .login-info h2{font-size:2.1rem;font-weight:700;letter-spacing:.5px;margin:0 0 .75rem;text-shadow:0 2px 12px rgba(0,0,0,.25)}
+    .login-info p{margin:0;font-size:1rem;opacity:.92;max-width:26em;text-shadow:0 1px 8px rgba(0,0,0,.2)}
+    #login{position:relative;background:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.35);border-radius:24px;padding:40px 34px 30px;width:360px;max-width:94vw;box-shadow:0 30px 80px rgba(0,0,0,.18);box-sizing:border-box}
+    .login h1{display:block;margin:0 0 6px;text-align:center}
+    .login h1 a{background-image:url('.io_get_option('login_logo',get_theme_file_uri('/images/logo_dark@2x.png')).');background-repeat:no-repeat;background-position:center center;background-size:contain;width:auto;height:'.io_get_option('login_logo_size',72).'px;margin:0 auto;text-indent:-9999px;display:block}
+    .login form{margin-top:10px}
+    #login form p{margin-bottom:16px}
+    #login form label{display:block;font-size:13px;font-weight:500;color:#6e6e73;margin-bottom:6px}
+    #login input[type=text],#login input[type=password]{width:100%;height:48px;padding:0 16px;background:#f5f5f7;border:1px solid rgba(0,0,0,.06);border-radius:12px;font-size:15px;color:#1d1d1f;box-sizing:border-box;box-shadow:none!important;outline:none!important;transition:border-color .2s ease,box-shadow .2s ease,background .2s ease}
+    #login input[type=text]:focus,#login input[type=password]:focus{border-color:#0071e3;background:#fff;box-shadow:0 0 0 4px rgba(0,113,227,.14)!important}
+    #login form .forgetmenot{float:none;display:block;margin-bottom:16px}
+    #login form .forgetmenot label{display:inline-block;font-size:13px;color:#6e6e73}
+    #login form p.submit{margin:0;text-align:center}
+    #login form p.submit .button-primary{float:none;width:100%;height:48px;background:#0071e3;border:0;border-radius:24px;font-size:16px;font-weight:600;color:#fff;text-shadow:none!important;box-shadow:none!important;cursor:pointer;transition:background .2s ease,box-shadow .2s ease}
+    #login form p.submit .button-primary:hover{background:#0077ed}
+    #login form p.submit .button-primary:focus{box-shadow:0 0 0 4px rgba(0,113,227,.28)!important}
+    #login form p.submit .button-primary:active{background:#006edb}
+    .login #nav,.login #backtoblog{margin:14px 0 0;padding:0;text-align:center;font-size:13px}
+    .login #nav a,.login #backtoblog a{color:#0071e3;text-decoration:none}
+    .login #nav a:hover,.login #backtoblog a:hover{text-decoration:underline}
+    #login_error,.login .message,.login .success{border:0!important;border-radius:12px;font-size:13px;padding:12px 16px;box-shadow:none!important}
+    .login #login_error{background:#fdeaea;color:#c81e1e}
+    .login .message{background:#e8f3ff;color:#0066cc}
+    .login .success{background:#e9f7ef;color:#1d7a3c}
+    .login .privacy-policy-page-link{font-size:12px;color:#86868b;text-align:center}
+    .footer-copyright{position:absolute;bottom:18px;left:0;right:0;color:rgba(255,255,255,.65);text-align:center;font-size:13px;padding:0 1rem}
+    .footer-copyright a{color:rgba(255,255,255,.65);text-decoration:none}
+    @media screen and (min-width:900px){
+        .login-body{width:1080px}
+        .login-img{display:block}
+        #login{margin-left:-44px;align-self:center}
     }
-</style>';
+    @media screen and (max-width:899px){
+        #login{margin:0 auto}
+    }
+    </style>';
 }
 if (io_get_option('login_beautify', true)) {
     add_action('login_header', 'io_login_header');

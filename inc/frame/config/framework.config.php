@@ -400,15 +400,24 @@ $options[] = array(
     'fields' => array(
 
         array(
+            'id' => 'seo_home_title', // this is must be unique
+            'type' => 'text',
+            'title' => '首页标题',
+            'after' => '留空则显示「站点名 | 副标题」',
+        ),
+
+        array(
             'id' => 'seo_home_keywords', // this is must be unique
             'type' => 'text',
             'title' => '首页关键词',
+            'after' => '多个关键词用英文逗号分隔',
         ),
 
         array(
             'id' => 'seo_home_desc', // this is must be unique
             'type' => 'textarea',
             'title' => '首页描述',
+            'after' => '重要：留空时 Google 等搜索引擎会自行抓取页面内容作为摘要（可能抓到站内某个网址的介绍），建议填写 50~160 字的网站介绍',
         ),
     ),
 );

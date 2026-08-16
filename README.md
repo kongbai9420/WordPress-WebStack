@@ -1,5 +1,5 @@
-# WebStack-2026.8.16
-WordPress 版 WebStack-2026.8.16 导航主题。<a href="https://dh.kongbaige.net/">前往演示站</a>
+# WebStack-2026.8.16-2
+WordPress 版 WebStack-2026.8.16-2 导航主题。<a href="https://dh.kongbaige.net/">前往演示站</a>
 本主题基于<a href="https://github.com/owen0o0/WebStack" target="_blank">owen0o0/WebStack</a>修改
 使用AI优化UI风格，偏向于苹果风（不知道算不算）
 
@@ -7,6 +7,7 @@ WordPress 版 WebStack-2026.8.16 导航主题。<a href="https://dh.kongbaige.ne
 - 本主题<a href="https://t.me/+zIx2kbaAaWxkNzU9" target="_blank">TG群组</a>
 
 ### 更新日志
+- **WebStack-2026.8.16-2** 登录页全新苹果风 UI（毛玻璃卡片、iOS 风格输入框、胶囊按钮、响应式布局）；SEO 头部修复：新增首页标题设置、首页描述为空时不再被搜索引擎抓到站内网址介绍、修正 OG 标签映射与转义
 - **WebStack-2026.8.16** 新增后台「网址」一键测活功能：支持并行检测全部站点存活状态（主题设置可调并行数量与功能开关），存活判定兼容反爬拦截（403/429/503 视为正常），支持直连被墙时配置测活代理，网络层失败可标记为未检测避免误删；结果以状态徽章持久显示并附具体原因，支持按状态筛选、勾选失效/删除全部失效（移入回收站可恢复），仅管理员可用
 - **WebStack-2026.8.5** 修复远程站点实时在线人数不更新问题，兼容访客统计开关返回类型，并更新静态资源版本号以避免缓存旧脚本
 - **WebStack-2026.8.4** 新增页脚访客统计、实时在线人数、访问量防刷新限流，优化 Apple 风格 UI、公告栏显示和首页分类跳转定位
