@@ -25,6 +25,7 @@ require_once get_theme_file_path() .'/inc/register.php';
 require_once get_theme_file_path() .'/inc/post-type.php';
 require_once get_theme_file_path() .'/inc/fav-content.php';
 require_once get_theme_file_path() .'/inc/ajax.php';
+require_once get_theme_file_path() .'/inc/site-check.php';
 require_once get_theme_file_path() .'/inc/online-users.php';
 
 

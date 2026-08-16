@@ -219,6 +219,10 @@ add_filter('manage_edit-sites_columns', 'io_ordinal_manage_posts_columns');
 add_action('manage_posts_custom_column','io_ordinal_manage_posts_custom_column',10,2);
 function io_ordinal_manage_posts_columns($columns){
     $columns['link']       = '链接';
+    // 「状态」列仅在主题设置开启一键测活时显示
+    if ( io_get_option( 'io_site_check_enable', true ) ) {
+        $columns['check_status'] = '状态';
+    }
 	$columns['ordinal']    = '排序'; 
 	$columns['visible']    = '可见性'; 
 	return $columns;
@@ -227,6 +231,26 @@ function io_ordinal_manage_posts_custom_column($column_name,$id){
 	switch( $column_name ) :
 		case 'link': {
 			echo get_post_meta($id, '_sites_link', true);
+			break;
+		}
+		case 'check_status': {
+			$io_st   = get_post_meta($id, '_sites_check_status', true);
+			$io_code = (int) get_post_meta($id, '_sites_check_code', true);
+			$io_msg  = get_post_meta($id, '_sites_check_msg', true);
+			$io_time = (int) get_post_meta($id, '_sites_check_time', true);
+			switch ($io_st) {
+				case 'alive': $io_cls = 'io-alive';   $io_txt = '正常'; break;
+				case 'dead':  $io_cls = 'io-dead';    $io_txt = '失效'; break;
+				default:      $io_cls = 'io-unknown'; $io_txt = '未检测'; break;
+			}
+			$io_title = '';
+			if ($io_code) $io_title .= 'HTTP ' . $io_code;
+			if ($io_msg)  $io_title .= ($io_title ? ' · ' : '') . $io_msg;
+			if ($io_time) $io_title .= ($io_title ? ' · ' : '') . wp_date('Y-m-d H:i', $io_time);
+			echo '<span class="io-check-badge ' . $io_cls . '" title="' . esc_attr($io_title) . '">' . $io_txt . '</span>';
+			if ( $io_msg ) {
+				echo '<div class="io-check-msg" title="' . esc_attr( $io_title ) . '">' . esc_html( $io_msg ) . '</div>';
+			}
 			break;
 		}
 		case 'ordinal': {
