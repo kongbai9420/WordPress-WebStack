@@ -25,7 +25,7 @@ WordPress 版 WebStack-2026.8.16-2 导航主题。<a href="https://dh.kongbaige.
 ### 后台截图
 <br/>
 
-![Thumbnail_index](https://picui.ogmua.cn/s1/2026/08/06/6a74a8a69161e.webp)
+![后台截图](https://pic.imgdd.cc/i/034EQZIDoDVkpAr44gnh8d.png)
 
 <br/>
 
