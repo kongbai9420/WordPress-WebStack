@@ -26,7 +26,8 @@ if( ! function_exists( 'cs_admin_enqueue_scripts' ) ) {
     }
 
     // Custom UI enhancements
-    wp_enqueue_style( 'cs-framework-custom', CS_URI .'/assets/css/cs-framework-custom.css', array( 'cs-framework' ), '1.0.0', 'all' );
+    wp_enqueue_style( 'cs-framework-custom', CS_URI .'/assets/css/cs-framework-custom.css', array( 'cs-framework' ), '2026.10.3', 'all' );
+    wp_enqueue_style( 'apple-ui-admin', get_theme_file_uri('/css/apple-ui.css'), array( 'cs-framework-custom' ), '2026.10.3', 'all' );
 
     if ( is_rtl() ) {
       wp_enqueue_style( 'cs-framework-rtl', CS_URI .'/assets/css/cs-framework-rtl.css', array(), '1.0.0', 'all' );

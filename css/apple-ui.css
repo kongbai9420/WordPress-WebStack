@@ -1960,3 +1960,37 @@ footer.main-footer .go-up a:hover {
     transform: none !important;
   }
 }
+
+/* ============================================================================
+   16. WordPress Admin CS Framework Fixes (Locking & Sticky Overrides)
+   ============================================================================ */
+.cs-option-framework {
+  overflow: visible !important;
+}
+
+.cs-framework .csf-header {
+  position: relative !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.35) !important;
+}
+
+.cs-framework .csf-sticky .csf-header-inner {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.45) !important;
+  backdrop-filter: blur(10px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.cs-framework .cs-nav {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 108px !important;
+  float: none !important;
+  width: 230px !important;
+  max-height: calc(100vh - 128px) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  flex-shrink: 0 !important;
+  z-index: 10 !important;
+  align-self: flex-start !important;
+}
