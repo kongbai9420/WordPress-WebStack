@@ -30,13 +30,16 @@ include( 'templates/header-nav.php' );
     else{?>
     <div class="no-search"></div>
     <?php } ?>
-    <h4 class="text-gray"><i class="icon-io-tag" style="margin-right: 27px;" id="<?php single_cat_title() ?>"></i><?php single_cat_title() ?></h4>
+    <section class="fav-section">
+        <div class="fav-section-head">
+            <h4 class="text-gray section-title"><i class="icon-io-tag" id="<?php single_cat_title() ?>"></i><?php single_cat_title() ?></h4>
+        </div>
 	<?php
     if($__visible == 2){
         echo '<div class="login-notice">'.__('此分类需登陆后查看','i_theme').'</div>';
 	} else {
 	?>
-    <div class="row">  
+        <div class="row fav-grid">  
 		<?php
 		if (have_posts()):
 			while (have_posts()):
@@ -49,7 +52,8 @@ include( 'templates/header-nav.php' );
             <?php include ('templates/site-card.php'); ?>
         	</div>
     	<?php endif; endwhile; endif; ?>
-    </div> 
+        </div> 
+    </section> 
     <br /> 
 
 	<div class="posts-nav">

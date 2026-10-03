@@ -17,6 +17,7 @@ function theme_load_scripts() {
     wp_register_style( 'font-awesome',      THEME_URL.'/css/font-awesome.min.css', array(), $theme_version, 'all'  );
 	wp_register_style( 'bootstrap',         THEME_URL.'/css/bootstrap.css', array(), $theme_version, 'all'  );
 	wp_register_style( 'nav',               THEME_URL.'/css/nav.css', array(), $theme_version );
+	wp_register_style( 'apple-ui',          THEME_URL.'/css/apple-ui.css', array('nav'), $theme_version );
 
 	wp_register_script( 'bootstrap',        THEME_URL.'/js/bootstrap.min.js', array('jquery'), $theme_version, true );
 	wp_register_script( 'TweenMax',         THEME_URL.'/js/TweenMax.min.js', array('jquery'), $theme_version, true );
@@ -28,6 +29,7 @@ function theme_load_scripts() {
 		wp_enqueue_style('font-awesome');
 		wp_enqueue_style('bootstrap');
 		wp_enqueue_style('nav'); 
+		wp_enqueue_style('apple-ui');
 
 		wp_deregister_script( 'jquery' );
 		wp_register_script( 'jquery', THEME_URL.'/js/jquery-1.11.1.min.js', array(), $theme_version ,false);

@@ -13,12 +13,12 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; } ?>
 
         <?php if( io_get_option('links') ) : ?>
-        <h4 class="text-gray mb-4">
-            <i class="fa fa-bookmark" id="friendlink" style="margin-right:10px"></i><?php _e('友情链接','i_theme') ?>
-        </h4>
-        <div class="friendlink" style="margin-bottom:-40px">
-            <div class="panel">
+        <section class="fav-section friendlink-section">
+            <div class="fav-section-head" id="friendlink">
+                <h4 class="text-gray section-title"><i class="icon-io-tag"></i><?php _e('友情链接','i_theme') ?></h4>
+            </div>
+            <div class="friendlink-content">
                 <?php wp_list_bookmarks('title_li=&before=&after=&categorize=0&show_images=0&orderby=rating&order=DESC&category='.get_option('link_f_cat')); ?>
             </div> 
-        </div> 
+        </section>
         <?php endif; ?> 

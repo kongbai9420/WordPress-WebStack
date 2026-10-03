@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }  ?>
     <div class="navbar-content">
       <ul class="user-info-menu list-inline list-unstyled">
         <li class="hidden-xs">
-            <a href="#" data-toggle="sidebar">
+            <a href="javascript:;" data-toggle="sidebar" class="apple-toolbar-btn" title="收起/展开侧边栏" aria-label="收起/展开侧边栏">
                 <i class="fa fa-bars"></i>
             </a>
         </li>
@@ -86,6 +86,29 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }  ?>
     toggle.addEventListener('click', function () {
         var nextMode = getCurrentMode() === 'black' ? 'white' : 'black';
         setMode(nextMode, true);
+    });
+})();
+
+(function () {
+    var SIDEBAR_KEY = 'webstack_sidebar_collapsed';
+    var sidebar = document.querySelector('.sidebar-menu');
+    if (!sidebar) return;
+
+    try {
+        if (window.innerWidth >= 768 && localStorage.getItem(SIDEBAR_KEY) === '1') {
+            sidebar.classList.add('collapsed');
+        }
+    } catch (e) {}
+
+    document.addEventListener('click', function (e) {
+        var btn = e.target.closest ? e.target.closest('a[data-toggle="sidebar"]') : null;
+        if (!btn) return;
+        setTimeout(function () {
+            try {
+                var isCollapsed = sidebar.classList.contains('collapsed');
+                localStorage.setItem(SIDEBAR_KEY, isCollapsed ? '1' : '0');
+            } catch (e) {}
+        }, 50);
     });
 })();
 

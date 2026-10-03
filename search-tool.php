@@ -78,29 +78,32 @@
         </div>
     </div>
     <form action="?s=" method="get" target="_blank" id="super-search-fm"><input type="text" id="search-text" placeholder="输入关键字搜索" style="outline:0"><button type="submit"><i class="fa fa-search "></i></button></form>
-    <div class="set-check hidden-xs">
-        <input type="checkbox" id="set-search-blank" class="bubble-3" autocomplete="off">
-    </div>
 </div>
 <script type="text/javascript">
 (function () {
     var searchTypes = document.querySelectorAll('input[name="type"]');
     var form = document.querySelector('#super-search-fm');
     var searchInput = document.querySelector('#search-text');
-    var newWindowToggle = document.querySelector('#set-search-blank');
     var searchGroups = document.querySelectorAll('.search-group');
+    var typeLabels = document.querySelectorAll('.s-type-list label');
     var storagePrefix = 'superSearch';
 
-    if (!searchTypes.length || !form || !searchInput || !newWindowToggle) {
+    if (!searchTypes.length || !form || !searchInput) {
         return;
     }
 
     function saveSetting(key, value) {
-        window.localStorage.setItem(storagePrefix + key, value);
+        try {
+            window.localStorage.setItem(storagePrefix + key, value);
+        } catch (e) {}
     }
 
     function getSetting(key) {
-        return window.localStorage.getItem(storagePrefix + key);
+        try {
+            return window.localStorage.getItem(storagePrefix + key);
+        } catch (e) {
+            return null;
+        }
     }
 
     function getSelectedValue() {
@@ -121,19 +124,6 @@
         form.action = value || '';
     }
 
-    function isNewWindow() {
-        var setting = getSetting('newWindow');
-        return setting ? setting == 1 : true;
-    }
-
-    function setTarget(openInNewWindow) {
-        if (openInNewWindow) {
-            form.target = '_blank';
-        } else {
-            form.removeAttribute('target');
-        }
-    }
-
     function setActiveGroup(input) {
         for (var i = 0; i < searchGroups.length; i++) {
             searchGroups[i].classList.remove('s-current');
@@ -142,6 +132,19 @@
         var group = input.parentNode && input.parentNode.parentNode && input.parentNode.parentNode.parentNode;
         if (group) {
             group.classList.add('s-current');
+        }
+
+        for (var j = 0; j < typeLabels.length; j++) {
+            typeLabels[j].classList.remove('active');
+            var forId = typeLabels[j].getAttribute('for');
+            if (forId === input.id) {
+                typeLabels[j].classList.add('active');
+            } else if (group) {
+                var firstInput = group.querySelector('input[name="type"]');
+                if (firstInput && forId === firstInput.id) {
+                    typeLabels[j].classList.add('active');
+                }
+            }
         }
     }
 
@@ -159,8 +162,6 @@
     function refreshSearchState() {
         setPlaceholder(getSelectedPlaceholder());
         setFormAction(getSelectedValue());
-        newWindowToggle.checked = isNewWindow();
-        setTarget(isNewWindow());
     }
 
     function onTypeChange(event) {
@@ -172,11 +173,6 @@
         setActiveGroup(input);
     }
 
-    function onNewWindowChange(event) {
-        saveSetting('newWindow', event.target.checked ? 1 : -1);
-        setTarget(event.target.checked);
-    }
-
     function onFormSubmit(event) {
         event.preventDefault();
 
@@ -185,15 +181,8 @@
             return false;
         }
 
-        setFormAction(getSelectedValue() + searchInput.value);
-        setTarget(isNewWindow());
-
-        if (isNewWindow()) {
-            window.open(form.action, +new Date());
-        } else {
-            window.location.href = form.action;
-        }
-
+        setFormAction(getSelectedValue() + encodeURIComponent(searchInput.value));
+        window.open(form.action, '_blank');
         return false;
     }
 
@@ -204,7 +193,6 @@
         searchTypes[i].addEventListener('change', onTypeChange);
     }
 
-    newWindowToggle.addEventListener('change', onNewWindowChange);
     form.addEventListener('submit', onFormSubmit);
 })();
 </script>

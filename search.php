@@ -24,29 +24,31 @@ include( 'templates/header-nav.php' );
 	</div>
 
 	<div class="row">
-		<div class="col-12 col-lg-8 mx-auto">
-			<h4 class="text-gray"><i class="fa fa-search" style="margin-right: 27px;"></i>"<?php echo esc_html($s); ?>" <?php _e('的搜索结果','i_theme'); ?></h4>
-        	<div class="row">
+		<div class="col-12 col-lg-12 mx-auto">
+			<section class="fav-section">
+				<div class="fav-section-head">
+					<h4 class="text-gray section-title"><i class="icon-io-tag"></i>"<?php echo esc_html($s); ?>" <?php _e('的搜索结果','i_theme'); ?></h4>
+				</div>
+        		<div class="row fav-grid">
                  
-			<?php if ( !have_posts() ) : ?>
-				<div class="col-lg-12">
-            		<div class="nothing"><?php _e('没有内容','i_theme') ?></div>
-          		</div>
-    		<?php endif; ?>
+				<?php if ( !have_posts() ) : ?>
+					<div class="col-lg-12">
+            			<div class="nothing"><?php _e('没有内容','i_theme') ?></div>
+          			</div>
+    			<?php endif; ?>
 			
-			
-    		<?php if ( have_posts() ) : ?>
-			<?php while ( have_posts() ) : the_post();
-			$link_url = get_post_meta($post->ID, '_sites_link', true); 
-            $default_ico = get_theme_file_uri('/images/favicon.png');
-			if(io_is_visible( get_post_meta($post->ID, '_visible', true))):
-			?>
-				<div class="xe-card col-sm-4 col-md-3 <?php echo get_post_meta($post->ID, '_wechat_qr', true)? 'wechat':''?>">
-            	  	
-				<?php include( 'templates/site-card.php' ); ?>
-            	</div>
-    		<?php endif; endwhile; endif;?>
-			</div>
+    			<?php if ( have_posts() ) : ?>
+				<?php while ( have_posts() ) : the_post();
+				$link_url = get_post_meta($post->ID, '_sites_link', true); 
+            	$default_ico = get_theme_file_uri('/images/favicon.png');
+				if(io_is_visible( get_post_meta($post->ID, '_visible', true))):
+				?>
+					<div class="xe-card col-sm-4 col-md-3 <?php echo get_post_meta($post->ID, '_wechat_qr', true)? 'wechat':''?>">
+						<?php include( 'templates/site-card.php' ); ?>
+            		</div>
+    			<?php endif; endwhile; endif;?>
+				</div>
+			</section>
 			<br /> 
 			<div class="posts-nav">
 			    <?php echo paginate_links(array(
