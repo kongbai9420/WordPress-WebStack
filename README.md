@@ -3,8 +3,6 @@
 基于 [owen0o0/WebStack](https://github.com/owen0o0/WebStack) 深度定制二开的 WordPress 导航主题。全面采用 **Apple Design System** 设计语言，配备 Spotlight 居中聚合搜索、macOS 智能 Dock 侧边栏与原生暗色模式；内置**全量网址后台一键并行测活**、**自研轻量级实时访客与在线人数统计**，并完成了深度的移动端重构与安全加固。
 
 - 🌐 **演示站点**：[https://dh.kongbaige.net](https://dh.kongbaige.net)
-- 📢 **Telegram 频道**：[WebStack_kong](https://t.me/WebStack_kong)
-- 💬 **Telegram 群组**：[点击加入交流群](https://t.me/+zIx2kbaAaWxkNzU9)
 - 📦 **版本发布**：[GitHub Releases](https://github.com/kongbai9420/WordPress-WebStack/releases)
 - 🇺🇸 **English Documentation**: [README_EN.md](README_EN.md)
 

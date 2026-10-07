@@ -3,8 +3,6 @@
 An advanced, beautifully crafted WordPress navigation/directory theme forked from [owen0o0/WebStack](https://github.com/owen0o0/WebStack), redesigned with the **Apple Design System** and packed with powerful features: **batch link survival monitor**, **privacy-first lightweight real-time visitor engine**, **Spotlight-style search**, **macOS-like Dock sidebar**, and thorough **mobile engineering overhaul**.
 
 - 🌐 **Live Demo**: [https://dh.kongbaige.net](https://dh.kongbaige.net)
-- 📢 **Telegram Channel**: [WebStack_kong](https://t.me/WebStack_kong)
-- 💬 **Telegram Community**: [Join Discussion Group](https://t.me/+zIx2kbaAaWxkNzU9)
 - 📦 **Releases & Downloads**: [GitHub Releases](https://github.com/kongbai9420/WordPress-WebStack/releases)
 - 🇨🇳 **中文说明文档**: [README.md](README.md)
 
