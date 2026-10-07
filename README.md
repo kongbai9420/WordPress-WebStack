@@ -8,6 +8,21 @@
 
 ---
 
+### 📸 界面预览
+
+#### 1. 🖥️ 电脑端前台（Desktop View）
+![电脑端前台首页](docs/screenshots/desktop-home.png)
+
+#### 2. 📱 手机端前台（Mobile View）
+<p align="left">
+  <img src="docs/screenshots/mobile-home.png" alt="手机端前台展示" width="380" style="border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.12);" />
+</p>
+
+#### 3. ⚙️ 后台主题设置面板（Admin Settings）
+![后台主题设置](docs/screenshots/admin-settings.png)
+
+---
+
 ### ✨ 新增核心功能深度解析
 
 #### 1. 🔍 后台「网址」一键并行测活系统（Site Health Monitor）

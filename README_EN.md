@@ -8,6 +8,21 @@ An advanced, beautifully crafted WordPress navigation/directory theme forked fro
 
 ---
 
+### 📸 Showcase & UI Screenshots
+
+#### 1. 🖥️ Desktop Frontend
+![Desktop Home](docs/screenshots/desktop-home.png)
+
+#### 2. 📱 Mobile View
+<p align="left">
+  <img src="docs/screenshots/mobile-home.png" alt="Mobile Frontend View" width="380" style="border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.12);" />
+</p>
+
+#### 3. ⚙️ Admin Settings Panel
+![Admin Settings](docs/screenshots/admin-settings.png)
+
+---
+
 ### ✨ Deep Dive: New Features & Capabilities
 
 #### 1. 🔍 One-Click Parallel URL Health Check (Site Health Monitor)
