@@ -14,10 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 define( 'THEME_URL', get_bloginfo('template_directory') );
 function theme_load_scripts() {
 	$theme_version = esc_attr(wp_get_theme()->get('Version'));
+	$apple_ui_ver  = filemtime( get_template_directory() . '/css/apple-ui.css' );
     wp_register_style( 'font-awesome',      THEME_URL.'/css/font-awesome.min.css', array(), $theme_version, 'all'  );
 	wp_register_style( 'bootstrap',         THEME_URL.'/css/bootstrap.css', array(), $theme_version, 'all'  );
 	wp_register_style( 'nav',               THEME_URL.'/css/nav.css', array(), $theme_version );
-	wp_register_style( 'apple-ui',          THEME_URL.'/css/apple-ui.css', array('nav'), $theme_version );
+	wp_register_style( 'apple-ui',          THEME_URL.'/css/apple-ui.css', array('nav'), $apple_ui_ver );
 
 	wp_register_script( 'bootstrap',        THEME_URL.'/js/bootstrap.min.js', array('jquery'), $theme_version, true );
 	wp_register_script( 'TweenMax',         THEME_URL.'/js/TweenMax.min.js', array('jquery'), $theme_version, true );
