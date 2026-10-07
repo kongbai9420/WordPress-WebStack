@@ -1503,6 +1503,8 @@ body.apple-ui a:hover {
 footer.main-footer {
   position: relative !important;
   margin-top: 32px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
   padding: 0 0 36px !important;
   border: 0 !important;
   border-top: 0 !important;
@@ -1660,6 +1662,64 @@ footer.main-footer .footer-text,
 
 .copyright-chip strong {
   font-weight: 600 !important;
+}
+
+/* ---------------------------------------------------------------------------
+   12b. Mobile Footer Refinements — tidy stacked layout on phones
+   --------------------------------------------------------------------------- */
+@media screen and (max-width: 767px) {
+  footer.main-footer {
+    padding: 0 0 28px !important;
+    margin-top: 24px !important;
+  }
+
+  .footer-text.footer-copyright-bar {
+    padding: 14px 16px !important;
+    gap: 10px !important;
+    border-radius: 18px !important;
+  }
+
+  /* Copyright text: full-width first row */
+  .copyright-main {
+    flex: 1 1 100% !important;
+    gap: 6px 10px !important;
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+  }
+
+  /* Live visitor stats: its own full-width strip, evenly spread */
+  .footer-copyright-bar .nav-live-widget {
+    flex: 1 1 100% !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-around !important;
+    width: 100% !important;
+    margin: 4px 0 0 0 !important;
+    padding: 5px 6px !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .nav-live-item {
+    flex: 1 1 auto !important;
+    justify-content: center !important;
+    padding: 3px 6px !important;
+    gap: 4px !important;
+    white-space: nowrap !important;
+  }
+
+  /* Credit chips: full-width, consistently left-aligned rows */
+  .copyright-links {
+    flex: 1 1 100% !important;
+    justify-content: flex-start !important;
+    gap: 6px 8px !important;
+  }
+
+  .copyright-chip {
+    padding: 4px 10px !important;
+    font-size: 11px !important;
+  }
 }
 
 /* Floating Back-to-Top Button */
