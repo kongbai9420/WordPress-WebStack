@@ -365,6 +365,7 @@ body.apple-ui a:hover {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
+    bottom: auto !important;
     width: 100% !important;
     height: auto !important;
     z-index: 1000 !important;
@@ -378,7 +379,7 @@ body.apple-ui a:hover {
   }
 
   /* Neutralize legacy inner glass card: single unified frosted bar */
-  .sidebar-menu .sidebar-menu-inner {
+  .page-container .sidebar-menu .sidebar-menu-inner {
     padding: 0 !important;
     height: auto !important;
     background: transparent !important;
@@ -390,7 +391,7 @@ body.apple-ui a:hover {
   }
 
   /* Compact brand capsule: logo left, hamburger right (both always visible) */
-  .sidebar-menu .logo-env {
+  .page-container .sidebar-menu .logo-env {
     height: 52px !important;
     min-height: 52px !important;
     margin-bottom: 0 !important;
@@ -403,7 +404,7 @@ body.apple-ui a:hover {
     box-shadow: var(--apple-shadow-sm) !important;
   }
 
-  .sidebar-menu .logo {
+  .page-container .sidebar-menu .logo {
     width: auto !important;
     flex: 1 1 auto !important;
     min-width: 0 !important;
