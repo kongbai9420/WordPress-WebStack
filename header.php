@@ -43,9 +43,6 @@ $io_url   = $io_is_home ? home_url() : home_url( $GLOBALS['wp']->request );
 <meta property="og:site_name" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
 <link rel="shortcut icon" href="<?php echo esc_url( io_get_option( 'favicon', get_theme_file_uri( '/images/favicon.png' ) ) ); ?>">
 <link rel="apple-touch-icon" href="<?php echo esc_url( io_get_option( 'apple_icon', get_theme_file_uri( '/images/app-ico.png' ) ) ); ?>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
 <?php wp_head(); ?>
 </head> 
  <body <?php body_class('page-body apple-ui '.io_get_option('theme_mode')) ?>>

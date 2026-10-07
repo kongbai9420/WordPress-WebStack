@@ -368,11 +368,119 @@ body.apple-ui a:hover {
     width: 100% !important;
     height: auto !important;
     z-index: 1000 !important;
+    padding: 8px 12px 10px !important;
     background: var(--apple-bg-glass-strong) !important;
     -webkit-backdrop-filter: saturate(180%) blur(20px) !important;
     backdrop-filter: saturate(180%) blur(20px) !important;
     border-bottom: 1px solid var(--apple-line) !important;
     box-shadow: var(--apple-shadow-sm) !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Neutralize legacy inner glass card: single unified frosted bar */
+  .sidebar-menu .sidebar-menu-inner {
+    padding: 0 !important;
+    height: auto !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Compact brand capsule: logo left, hamburger right (both always visible) */
+  .sidebar-menu .logo-env {
+    height: 52px !important;
+    min-height: 52px !important;
+    margin-bottom: 0 !important;
+    padding: 6px 10px !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    background: var(--apple-bg-white) !important;
+    border: 1px solid var(--apple-line) !important;
+    border-radius: 14px !important;
+    box-shadow: var(--apple-shadow-sm) !important;
+  }
+
+  .sidebar-menu .logo {
+    width: auto !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    max-width: calc(100% - 52px) !important;
+  }
+
+  .brand-link {
+    gap: 9px !important;
+  }
+
+  .brand-mark {
+    width: 34px !important;
+    height: 34px !important;
+    flex: 0 0 34px !important;
+    border-radius: 8px !important;
+  }
+
+  .brand-mark img {
+    border-radius: 8px !important;
+  }
+
+  .brand-title {
+    font-size: 13.5px !important;
+  }
+
+  .brand-subtitle {
+    font-size: 10px !important;
+    max-width: none !important;
+  }
+
+  /* Apple pill hamburger, fixed at the right edge of the capsule */
+  .sidebar-menu .logo-env .mobile-menu-toggle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 auto !important;
+    float: none !important;
+    margin-left: 6px !important;
+  }
+
+  .sidebar-menu .logo-env .mobile-menu-toggle a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 50% !important;
+    background: var(--apple-bg-pill) !important;
+    border: 1px solid var(--apple-line) !important;
+    color: var(--apple-text-secondary) !important;
+    box-shadow: var(--apple-shadow-sm) !important;
+    transition: all 0.2s var(--apple-ease) !important;
+    margin: 0 !important;
+  }
+
+  .sidebar-menu .logo-env .mobile-menu-toggle a i {
+    font-size: 15px !important;
+    line-height: 1 !important;
+    position: static !important;
+    top: 0 !important;
+  }
+
+  .sidebar-menu .logo-env .mobile-menu-toggle a:active {
+    background: var(--apple-bg-pill-hover) !important;
+    color: var(--apple-link-blue) !important;
+    transform: scale(0.96) !important;
+  }
+
+  /* Opened mobile menu: clean frosted sheet below the bar */
+  .sidebar-menu .sidebar-menu-inner .main-menu {
+    margin-top: 8px !important;
+    margin-bottom: 0 !important;
+    padding: 8px !important;
+    background: var(--apple-bg-white) !important;
+    border: 1px solid var(--apple-line) !important;
+    border-radius: 16px !important;
+    box-shadow: var(--apple-shadow-card) !important;
   }
 
   body.apple-ui .page-container .main-content {
@@ -381,7 +489,7 @@ body.apple-ui a:hover {
     margin-left: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
-    padding: 64px 14px 36px !important;
+    padding: 72px 12px 36px !important;
     box-sizing: border-box !important;
     background: transparent !important;
   }
@@ -1741,6 +1849,24 @@ footer.main-footer .go-up a:hover {
 .black .sidebar-menu {
   background: var(--apple-bg-glass) !important;
   border-right-color: var(--apple-line) !important;
+}
+
+.black .sidebar-menu .logo-env {
+  background: var(--apple-bg-white) !important;
+  border-color: var(--apple-line) !important;
+  box-shadow: var(--apple-shadow-card) !important;
+}
+
+.black .sidebar-menu .logo-env .mobile-menu-toggle a {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: var(--apple-line) !important;
+  color: var(--apple-text-primary) !important;
+}
+
+.black .sidebar-menu .sidebar-menu-inner .main-menu {
+  background: var(--apple-bg-white) !important;
+  border-color: var(--apple-line) !important;
+  box-shadow: var(--apple-shadow-card) !important;
 }
 
 .black .apple-toolbar-btn {
