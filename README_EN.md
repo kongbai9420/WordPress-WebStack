@@ -1,4 +1,4 @@
-# WebStack-2026.10.7 (Apple Design Edition)
+# WebStack-2026.10.8 (Apple Design Edition)
 
 An advanced, beautifully crafted WordPress navigation/directory theme forked from [owen0o0/WebStack](https://github.com/owen0o0/WebStack), redesigned with the **Apple Design System** and packed with powerful features: **batch link survival monitor**, **privacy-first lightweight real-time visitor engine**, **Spotlight-style search**, **macOS-like Dock sidebar**, and thorough **mobile engineering overhaul**.
 
