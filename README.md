@@ -1,4 +1,4 @@
-# WebStack-2026.10.8 (Apple Design Edition)
+# WebStack-2026.11.14 (Apple Design Edition)
 
 基于 [owen0o0/WebStack](https://github.com/owen0o0/WebStack) 深度定制二开的 WordPress 导航主题。全面采用 **Apple Design System** 设计语言，配备 Spotlight 居中聚合搜索、macOS 智能 Dock 侧边栏与原生暗色模式；内置**全量网址后台一键并行测活**、**自研轻量级实时访客与在线人数统计**，并完成了深度的移动端重构与安全加固。
 

@@ -589,7 +589,7 @@ function io_site_check_admin_enqueue() {
 		'io-site-check',
 		get_theme_file_uri( '/js/site-check.js' ),
 		array( 'jquery' ),
-		'2026.10.8',
+		'2026.11.14',
 		true
 	);
 
